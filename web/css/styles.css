@@ -1,0 +1,440 @@
+/*ESTILOS GENERALES*/
+body {
+    background-color: #FEF7FF ;
+    font-family: 'PT Sans Narrow', sans-serif;
+    border: 6px solid #d98e8ecb;
+}
+
+img{
+    border-radius: 11px;
+}
+
+h1 {
+    margin-left: 30px;
+    color: #d98e8ecb   
+}
+h3 {
+    font-weight: 400;
+}
+
+span {
+    font-weight: 400;
+}
+
+p{
+    font-weight: 500;
+}
+a {
+    color: inherit; 
+    text-decoration: none;;
+    padding: 8px;
+}
+
+
+
+
+/*COMPONENTES ESPECIFICOS*/
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 80px;
+    margin-right:100px;
+    height: 130px;
+}
+nav {
+    display: flex;
+    margin-left: auto;
+}
+
+
+
+
+
+/*CLASES*/
+.nav-interfaz {
+    color: rgba(0,0,0,0.6); 
+    font-weight: 700;
+}
+
+.activo {
+    font-size: 25px;
+    color: rgba(0,0,0,1)
+}
+.productoCuadricula {
+    height: auto;
+    width: 200px;
+    background-color: #e9b6b6 ;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 11%;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+#inventario {
+    margin-left: 150px;
+    margin-right:150px; 
+    
+    display: flex;
+    flex-wrap: wrap;
+}
+#BarraNavegacion{
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    margin-top: 15px;
+    margin-left:125px;
+    margin-bottom:50px;
+    margin-right: 125px;
+
+}
+
+.BotonesNavegacion{
+    outline: none;
+    height: 33px; 
+    content:center; 
+    margin-left: 0px;
+    margin-right: 3px;
+    padding-left: 12px; 
+    padding-right:12px;
+    border-radius: 16px;
+    color: rgb(0,0,0);
+    background-color: #D9C6C6;
+    font-weight: 500;
+    border-style: outset;
+    border-width: 2px;
+}
+#SeleccionVista{
+    display: flex;
+    align-items: center;
+    justify-items: space-between;
+}
+.casilla-bus-txt {
+    height:25px; 
+    outline: none;
+    padding:0px 60px 0px 20px; 
+    border:1px solid rgba(0,0,0,1);
+    border-radius: 11px;  
+    margin-right: 5px; 
+    color: rgba(0,0,0,1); 
+    font-weight: 150;
+    
+}
+.logo {
+    text-align: center;    
+    margin-top: 10px
+}
+#BarBusAlter{
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    margin-top: 15px;
+    margin-bottom:50px;
+    margin-right: 100px;
+
+}
+.vista-txt {
+    margin-right: 10px;
+    margin-top: 0%;
+    padding-top: 0%;
+}
+.contenedor-busqueda {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+#baseBoton {
+    position: fixed;
+    bottom: 50px;
+    right: 125px;
+}
+.boton-despl{
+    width: 50px;
+    height: 50px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: xx-large;
+    font-weight: 400;
+
+    border-radius: 50%;
+    background-color: #D9C6C6;
+}
+.reg-prod{
+    position: absolute;
+    bottom:57px;
+
+    width: 52px;
+    height: 52px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: xx-large;
+    font-weight: 400;
+
+    border-radius: 50%;
+    background-color: #D9C6C6;
+
+}
+.ret-prod {
+    position: absolute;
+    right:57px;
+
+    width: 52px;
+    height: 52px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: xx-large;
+    font-weight: 400;
+
+    border-radius: 50%;
+    background-color: #D9C6C6;
+}
+
+/*Estilos para Enlistado*/
+
+/*Fase 1- generacion del campo para las tarjetas*/
+.campoEnlistado{
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+/*Generacion de tarjeta*/
+.tarjetaEnlistada{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+
+    height: 110px;
+
+    margin-top: 20px;
+    padding-right: auto;
+    
+    border-radius: 11px;
+    background-color: #d98e8ecb;
+}
+
+/*Segunda capa de tarjeta - distribuye a la izquierda los datos generales*/
+.seccionDatosPrincipal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 110px;
+}
+.nombreTarjetas{
+
+    display: inline-block;
+    align-content: center;
+
+    height: 50px;
+
+    margin-left: 20px;
+    
+    font-weight: 700;
+    font-size: x-large;
+
+}
+
+/*Tercera capa de tarjeta - Distribuye los datos textuales*/
+.seccionDatosSecundaria{
+    height: 110px;
+}
+
+/*Cuarta capa de tarjeta - distribuye datos textuales secundarios*/
+.seccionDatosTerciaria{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.datosInternos{
+
+    display: block;
+    align-content: center;
+
+    margin-right:65px;
+    margin-left: 30px;
+
+    font-weight: 400;
+
+}
+
+.datosIndividuales{
+    display: block;
+}
+
+.boton{
+
+    content:center; 
+
+    height: 35px; 
+
+    margin-right: 20px;
+    padding-left: 12px; 
+    padding-right:12px;
+
+    border-radius: 16px;
+    color: rgb(0,0,0);
+    background-color: #D9C6C6;
+    border-style: outset;
+    border-width: 2px;
+    outline: none;
+
+    font-weight: 500;
+}
+
+/*Bloque de informacion para cuenta*/
+#bloqueInformacion{
+    margin-left: 450px;
+    margin-right: 450px;
+    height: auto;
+    display:block;
+    
+}
+.seccionBotones{
+    display: flex;
+    justify-content: space-between;
+}
+.botonInformacion{
+    content:center; 
+
+    height: 35px; 
+    width: 170px;
+
+    padding-left: 20px; 
+    padding-right:20px;
+
+    border-radius: 16px;
+    color: rgb(0,0,0);
+    background-color: #D9C6C6;
+    border-style: outset;
+    border-width: 2px;
+    outline: none;
+
+    font-weight: 500;
+}
+.casillaDatos{
+    display: block;
+    border-radius: 11px;
+    border-width: 1px;
+    height: 40px;
+    width: auto;
+    background-color: #E9B6B6;
+    margin-bottom: 2px;
+    margin-left: 40px;
+    margin-right: 40px;
+    align-content: center;
+    text-indent: 10px;
+}
+.casillaPermisos{
+    display: block;
+    border-radius: 11px;
+    border-width: 1px;
+    width: auto;
+    background-color: #E9B6B6;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    align-content: center;
+    text-indent: 10px;
+}
+.etiquetaInformacion{
+    margin-left: 25px;
+    font-weight: 700;
+}
+.permiso{
+    display:flex;
+    justify-content: space-between;
+
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding-right: 10px ;
+}
+
+/*Bloque de MAIN configuracion*/
+#opcionesConfiguracion{
+    display: flex;
+    justify-content: space-between;
+    
+    /*margin-top: 50px;*/
+    margin-left: 290px;
+    margin-right: 290px;
+    margin-bottom: 100px;
+
+    height: auto;
+    
+}
+.titulosConfiguracion{
+    margin-left: 0px;
+    color: black;
+}
+.administracionUsuarios{
+    display: block;
+    
+    height: auto;
+}
+
+.seccionBotonesAdmUs{
+    display: flex;
+    flex-direction: column;
+
+    height: auto;
+}
+.botonAdminUs{
+
+    content:center; 
+
+    height: 35px; 
+
+    padding-left: 12px; 
+    padding-right:12px;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 20px;
+
+    border-radius: 16px;
+    color: rgb(0,0,0);
+    background-color: #D9C6C6;
+    border-style: outset;
+    border-width: 2px;
+    outline: none;
+
+    font-weight: 500;
+}
+.limpiezaSistema{
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    height: 250px;
+}
+.botonLimpieza{
+    content:center; 
+
+    height: 35px; 
+
+    padding-left: 12px; 
+    padding-right:12px;
+    
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+    border-radius: 16px;
+    color: rgb(0,0,0);
+    
+    background-color: ;
+    border-style: outset;
+    border-width: 2px;
+    outline: none;
+
+    font-weight: 500;
+}
