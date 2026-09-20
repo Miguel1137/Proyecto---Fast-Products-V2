@@ -1,4 +1,4 @@
-if (window.location.href.includes("index")){
+if (window.location.href.includes("inventario")){
 
     document.getElementById("barraBusqueda").innerHTML=`
         <section id="BarraNavegacion">

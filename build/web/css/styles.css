@@ -34,7 +34,26 @@ a {
 
 
 /*COMPONENTES ESPECIFICOS*/
-header {
+nav {
+    display: flex;
+    margin-left: auto;
+}
+input, label {
+    display: block; /* Esto hace que cada uno ocupe su propia línea */
+    margin-bottom: 10px; /* Un pequeño espacio entre ellos */
+}
+
+
+
+
+/*CLASES*/
+
+.headerBasico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.headerInterno {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -42,16 +61,6 @@ header {
     margin-right:100px;
     height: 130px;
 }
-nav {
-    display: flex;
-    margin-left: auto;
-}
-
-
-
-
-
-/*CLASES*/
 .nav-interfaz {
     color: rgba(0,0,0,0.6); 
     font-weight: 700;
@@ -431,7 +440,6 @@ nav {
     border-radius: 16px;
     color: rgb(0,0,0);
     
-    background-color: ;
     border-style: outset;
     border-width: 2px;
     outline: none;

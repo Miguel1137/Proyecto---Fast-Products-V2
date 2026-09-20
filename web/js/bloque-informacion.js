@@ -46,7 +46,7 @@ document.getElementById("bloqueInformacion").innerHTML=`
         </div>
     </div>
     <div class="seccionBotones">
-        <button class="botonInformacion" style="background-color: #F45D5D;">Cerrar Sesion</button>
+        <button class="botonInformacion" style="background-color: #F45D5D;"><a href="index.html" >Cerrar Sesion</a></button>
         <button class="botonInformacion" style="background-color: #D9C6C6;">Modificar Informacion</button>
     </div>
             `

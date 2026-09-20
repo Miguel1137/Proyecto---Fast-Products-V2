@@ -34,7 +34,26 @@ a {
 
 
 /*COMPONENTES ESPECIFICOS*/
-header {
+nav {
+    display: flex;
+    margin-left: auto;
+}
+input, label {
+    display: block; /* Esto hace que cada uno ocupe su propia línea */
+    margin-bottom: 10px; /* Un pequeño espacio entre ellos */
+}
+
+
+
+
+/*CLASES*/
+
+.headerBasico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.headerInterno {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -42,16 +61,10 @@ header {
     margin-right:100px;
     height: 130px;
 }
-nav {
-    display: flex;
-    margin-left: auto;
+.italica{
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
 }
-
-
-
-
-
-/*CLASES*/
 .nav-interfaz {
     color: rgba(0,0,0,0.6); 
     font-weight: 700;
@@ -61,23 +74,21 @@ nav {
     font-size: 25px;
     color: rgba(0,0,0,1)
 }
-.productoCuadricula {
-    height: auto;
-    width: 200px;
-    background-color: #e9b6b6 ;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 11%;
-    margin-left: 50px;
-    margin-top: 30px;
-}
+
 #inventario {
-    margin-left: 150px;
-    margin-right:150px; 
-    
+    margin: 0 auto; 
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
 }
+
+
+
+
+
+
+
 #BarraNavegacion{
     align-items: center;
     justify-content: space-between;
@@ -292,73 +303,95 @@ nav {
 }
 
 /*Bloque de informacion para cuenta*/
-#bloqueInformacion{
-    margin-left: 450px;
-    margin-right: 450px;
+#bloqueInformacion {
+    /* Eliminamos los 450px fijos. Usamos un ancho fluido con un límite máximo */
+    width: 100%;
+    max-width: 600px; /* Limita el ancho en pantallas grandes para que no se estire de más */
+    margin: 0 auto;    /* Centra automáticamente el bloque sin importar el zoom */
     height: auto;
-    display:block;
-    
+    display: block;
+    box-sizing: border-box;
+    padding: 0 15px;   /* Un respiro seguro en pantallas muy pequeñas */
 }
-.seccionBotones{
+
+.casillasInformacion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px; /* Espaciado moderno y uniforme entre cada sección */
+}
+
+.etiquetaInformacion {
+    /* Usamos margin relativo o block con padding para evitar saltos bruscos */
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.casillaDatos {
+    display: flex; /* Cambiado a flex para un centrado vertical perfecto y limpio */
+    align-items: center;
+    border-radius: 11px;
+    border: 1px solid #c79595;
+    height: 40px;
+    width: 100%; /* Ocupa el 100% de su contenedor padre de manera fluida */
+    background-color: #E9B6B6;
+    padding-left: 10px; /* Reemplaza text-indent para mejor soporte */
+    box-sizing: border-box;
+}
+
+.casillaPermisos {
+    display: flex;
+    flex-direction: column;
+    border-radius: 11px;
+    border: 1px solid #c79595;
+    width: 100%;
+    background-color: #E9B6B6;
+    padding: 18px 20px; /* Padding simétrico */
+    box-sizing: border-box;
+}
+
+.permiso {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin: 4px 0;
 }
-.botonInformacion{
-    content:center; 
 
-    height: 35px; 
-    width: 170px;
+.seccionBotones {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px; /* Evita que los botones se peguen si la pantalla se reduce */
+    margin-top: 25px;
+}
 
-    padding-left: 20px; 
-    padding-right:20px;
-
+.botonInformacion {
+    flex: 1; /* Hace que los botones compartan el espacio de manera flexible */
+    max-width: 200px; /* Evita que crezcan demasiado en pantallas gigantes */
+    height: 40px;
     border-radius: 16px;
     color: rgb(0,0,0);
     background-color: #D9C6C6;
-    border-style: outset;
-    border-width: 2px;
+    border: 2px outset #b59898;
     outline: none;
-
     font-weight: 500;
+    cursor: pointer;
+    
+    /* Centrado de contenido interno */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
-.casillaDatos{
-    display: block;
-    border-radius: 11px;
-    border-width: 1px;
-    height: 40px;
-    width: auto;
-    background-color: #E9B6B6;
-    margin-bottom: 2px;
-    margin-left: 40px;
-    margin-right: 40px;
-    align-content: center;
-    text-indent: 10px;
-}
-.casillaPermisos{
-    display: block;
-    border-radius: 11px;
-    border-width: 1px;
-    width: auto;
-    background-color: #E9B6B6;
-    padding-top: 18px;
-    padding-bottom: 18px;
-    margin-bottom: 20px;
-    margin-left: 40px;
-    margin-right: 40px;
-    align-content: center;
-    text-indent: 10px;
-}
-.etiquetaInformacion{
-    margin-left: 25px;
-    font-weight: 700;
-}
-.permiso{
-    display:flex;
-    justify-content: space-between;
 
-    margin-top: 2px;
-    margin-bottom: 2px;
-    padding-right: 10px ;
+/* Opcional: si tienes un enlace dentro del botón de cerrar sesión para que no rompa estilos */
+.botonInformacion a {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /*Bloque de MAIN configuracion*/
@@ -431,10 +464,108 @@ nav {
     border-radius: 16px;
     color: rgb(0,0,0);
     
-    background-color: ;
     border-style: outset;
     border-width: 2px;
     outline: none;
 
     font-weight: 500;
 }
+
+.tarjetaProducto{
+    max-width: 220px;
+    max-height: 350px;
+    height: auto;
+    width: 200px;
+    background-color: #e9b6b6 ;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 11%;
+}
+
+#bloqueInformacion {
+    width: 100%;
+    max-width: 420px; /* Tamaño ideal y profesional para una tarjeta de login */
+    background-color: #fff; /* O el color de fondo que prefieras para la tarjeta */
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sutil sombra para darle profundidad */
+    box-sizing: border-box;
+}
+
+.headerLogin {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.headerLogin h2 {
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.headerLogin h4 {
+    color: #666;
+    font-weight: 400;
+    font-size: 0.95rem;
+}
+
+.formularioLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio uniforme entre los campos del formulario */
+}
+
+.grupoInput {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.grupoInput label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #444;
+    margin-left: 5px;
+}
+
+/* Estilo unificado para los inputs del login para que mantengan la línea estética */
+.formularioLogin input[type="text"],
+.formularioLogin input[type="password"] {
+    height: 45px;
+    border-radius: 11px;
+    border: 1px solid #c79595;
+    background-color: #E9B6B6;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+    color: #000;
+}
+
+/* Cambia sutilmente el color al enfocar el input */
+.formularioLogin input[type="text"]:focus,
+.formularioLogin input[type="password"]:focus {
+    border-color: #a05a5a;
+}
+
+.botonLogin {
+    height: 45px;
+    border-radius: 16px;
+    color: rgb(0, 0, 0);
+    background-color: #D9C6C6;
+    border: 2px outset #b59898;
+    outline: none;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.botonLogin:hover {
+    background-color: #cbb4b4;
+}
+
