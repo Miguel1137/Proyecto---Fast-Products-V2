@@ -1,8 +1,17 @@
 /*ESTILOS GENERALES*/
 body {
+    -webkit-user-select: none; /* Para Safari / Chrome antiguo */
+    -moz-user-select: none;    /* Para Firefox */
+    -ms-user-select: none;     /* Para Internet Explorer / Edge antiguo */
+    /*propiedad estándar*/
+    user-select: none;
+
     background-color: #FEF7FF ;
     font-family: 'PT Sans Narrow', sans-serif;
     border: 6px solid #d98e8ecb;
+
+    margin: 0%;
+    padding: 2%;
 }
 
 img{
@@ -48,58 +57,79 @@ input, label {
 
 /*CLASES*/
 
+/*inventario*/
+
+
+
+/*HEADER*/
 .headerBasico {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+
 .headerInterno {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
-    margin-left: 80px;
-    margin-right:100px;
-    height: 130px;
+    justify-content: space-between; /* Envía el logo a la izquierda y el nav a la derecha */
+    margin: 3%;
+    gap: 15px; /* Espacio de seguridad por si bajan de línea en pantallas pequeñas */
 }
-.italica{
+
+.italica {
     font-family: 'Playfair Display', serif;
     font-style: italic;
 }
+.logo {
+    text-align: center;    
+    margin-top: 10px
+}
+
+/* OPCIONES DE NAVEGACION */
 .nav-interfaz {
     color: rgba(0,0,0,0.6); 
     font-weight: 700;
+    margin: 0; /* Quitamos márgenes por defecto de los h3 para que el gap del flex funcione bien */
 }
 
 .activo {
     font-size: 25px;
-    color: rgba(0,0,0,1)
+    color: rgba(0,0,0,1);
 }
 
-#inventario {
-    margin: 0 auto; 
+/*OPCIONES DE NAVEGACION*/
+/*HEADER*/
+
+
+/*BARRA DE NAVEGACION*/
+#opcionesBusqueda{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-}
-
-
-
-
-
-
-
-#BarraNavegacion{
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    display: flex;
-    margin-top: 15px;
-    margin-left:125px;
-    margin-bottom:50px;
-    margin-right: 125px;
+    margin-top: 3rem;
+    margin-left: 3rem;
+    margin-bottom:4%;
+    margin-right: 3rem;
+    flex-wrap: wrap;
+    gap: 15px;
 
 }
-
+#SeleccionVista{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-items: space-between;
+    gap: 10px;
+}
+.distribucion-botones-vista{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 .BotonesNavegacion{
     outline: none;
     height: 33px; 
@@ -115,11 +145,6 @@ input, label {
     border-style: outset;
     border-width: 2px;
 }
-#SeleccionVista{
-    display: flex;
-    align-items: center;
-    justify-items: space-between;
-}
 .casilla-bus-txt {
     height:25px; 
     outline: none;
@@ -131,19 +156,6 @@ input, label {
     font-weight: 150;
     
 }
-.logo {
-    text-align: center;    
-    margin-top: 10px
-}
-#BarBusAlter{
-    align-items: center;
-    justify-content: space-between;
-    display: flex;
-    margin-top: 15px;
-    margin-bottom:50px;
-    margin-right: 100px;
-
-}
 .vista-txt {
     margin-right: 10px;
     margin-top: 0%;
@@ -154,10 +166,45 @@ input, label {
     align-items: center;
     margin-left: auto;
 }
+/*BARA DE NAVEGACION*/
+
+/*PRODUCTOS*/
+#inventario {
+    margin: 0 auto; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+.tarjetaProducto{
+    max-width: 220px;
+    max-height: 350px;
+    height: auto;
+    width: 200px;
+    background-color: #e9b6b6 ;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 11%;
+    box-shadow: 0 4px 20px rgba(31, 30, 30, 0.582);
+}
+/*PRODUCTOS*/
+
+
+
+
+
+
+
+
 #baseBoton {
     position: fixed;
     bottom: 50px;
     right: 125px;
+    box-shadow: 0 4px 20px rgba(31, 30, 30, 0.582);
+
 }
 .boton-despl{
     width: 50px;
@@ -300,6 +347,22 @@ input, label {
     outline: none;
 
     font-weight: 500;
+}
+
+#opcionesConfiguracion {
+    width: 100%;
+    max-width: 600px; /* Limita el ancho en pantallas grandes para que no se estire de más */
+    margin: 0 auto;    /* Centra automáticamente el bloque sin importar el zoom */
+    height: auto;
+    display: block;
+    box-sizing: border-box;
+    padding: 0 15px;width: 100%;
+    max-width: 600px; /* Limita el ancho en pantallas grandes para que no se estire de más */
+    margin: 0 auto;    /* Centra automáticamente el bloque sin importar el zoom */
+    height: auto;
+    display: block;
+    box-sizing: border-box;
+    padding: 0 15px;
 }
 
 /*Bloque de informacion para cuenta*/
@@ -471,19 +534,7 @@ input, label {
     font-weight: 500;
 }
 
-.tarjetaProducto{
-    max-width: 220px;
-    max-height: 350px;
-    height: auto;
-    width: 200px;
-    background-color: #e9b6b6 ;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 11%;
-}
+
 
 #bloqueInformacion {
     width: 100%;
@@ -569,3 +620,28 @@ input, label {
     background-color: #cbb4b4;
 }
 
+
+@media (max-width: 768px) {
+    #opcionesBusqueda{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem;
+    margin-left: 3rem;
+    margin-bottom:4%;
+    margin-right: 3rem;
+    flex-wrap: wrap;
+    gap: 15px;
+
+}
+.headerInterno {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between; /* Envía el logo a la izquierda y el nav a la derecha */
+    margin: 3%;
+    gap: 15px; /* Espacio de seguridad por si bajan de línea en pantallas pequeñas */
+}
+}

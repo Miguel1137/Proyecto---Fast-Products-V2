@@ -1,7 +1,7 @@
 if (window.location.href.includes("inventario")){
 
     document.getElementById("barraBusqueda").innerHTML=`
-        <section id="BarraNavegacion">
+        <section id="opcionesBusqueda">
             <!--SELECCION DE VISTA Y TEXTO-->
             <div id="SeleccionVista">
 
@@ -11,7 +11,7 @@ if (window.location.href.includes("inventario")){
                 </div>
 
                 <!--botones-->
-                <div>
+                <div class="distribucion-botones-vista">
                     <button class="BotonesNavegacion">Cuadricula</button>
                     <button class="BotonesNavegacion">Lista</button>
                 </div>
@@ -31,7 +31,7 @@ if (window.location.href.includes("inventario")){
    document.getElementById("barraBusqueda").innerHTML=`
 
         <!--BARRA BUSQUEDA-->
-        <section id="BarraNavegacion">
+        <section id="opcionesBusqueda">
             <div class="contenedor-busqueda">
 
                 <input class="casilla-bus-txt"; type="text" placeholder="Buscar artículo">

@@ -1,22 +1,3 @@
-document.getElementById("header").innerHTML=`
-        <div style="display: flex; align-items: center; ">
-            <a style=" color: rgb(255, 255, 255);" href="inventario.html">
-                <img class="logo" src="images/FastProducts.jpeg" alt="Logo FastProducts" width="60" height="60"> 
-            </a>
-            <h1 class="italica"><a href="inventario.html" ><i>Fast Products</i></a></h1>
-        </div>
-           
-        <nav>
-            <h3 id="navbar-inicio" class="nav-interfaz"><a href="inventario.html" >Inicio</a></h3>
-            <h3 id="navbar-alertas" class="nav-interfaz"><a href="alertas.html">Alertas</a></h3>
-            <h3 id="navbar-reportes" class="nav-interfaz"><a href="reportes.html" >Reportes</a></h3>
-            <h3 id="navbar-cuenta" class="nav-interfaz"><a href="cuenta.html" >Cuenta</a></h3>
-            <h3 id="navbar-configuracion" class="nav-interfaz"><a href="configuracion.html" >Configuracion</a></h3>
-
-        </nav>
-`;
-
-
 //el window location... dice que si el link incluye la palabbra puesta
 if (window.location.href.includes("inventario")){
 
