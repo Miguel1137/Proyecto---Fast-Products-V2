@@ -190,6 +190,10 @@ input, label {
     border-radius: 11%;
     box-shadow: 0 4px 20px rgba(31, 30, 30, 0.582);
 }
+.producto :hover{
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(31, 30, 30, 0.822);
+}
 /*PRODUCTOS*/
 
 
@@ -644,4 +648,59 @@ input, label {
     margin: 3%;
     gap: 15px; /* Espacio de seguridad por si bajan de línea en pantallas pequeñas */
 }
+}
+
+
+
+/*Interfaz del producto*/
+.contenedor-tarjeta-productos{
+    display: flex;  
+    flex-direction: column;      /*alinea en fila */
+    align-items: center;/* Si las tarjetas no caben a lo ancho, se bajan solas a la siguiente línea */
+    justify-content: center;
+}
+.contenedor-datos-producto{
+    display: flex;  
+    flex-direction: column;      /*alinea en fila */
+    align-items: center;/* Si las tarjetas no caben a lo ancho, se bajan solas a la siguiente línea */
+    justify-content: center; /* Centra las tarjetas en la pantalla */
+    gap: 5px;              /* Crea un espacio exacto de 20px entre cada tarjeta (¡sin pelear con márgenes!) */
+    padding: 20px;
+    
+    background-color: white;
+    border: 1px solid rgb(0, 0, 0); /* Usando tu color rosa suave */
+    border-radius: 8px;
+    padding: 20px;    margin-top: 20px;
+
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+
+    /* Esto define el tamaño base de la tarjeta (ej. 280px) pero le permite crecer si es necesario */
+    flex: 1 1 auto; 
+    
+    width: 50%;
+    /* Opcional: Define un ancho máximo para que no se estiren demasiado en pantallas gigantes */
+    max-width: 500px; 
+    
+    box-sizing: border-box;
+}
+.datos-textuales{
+    display: flex;
+    flex-direction: column;
+    justify-content:left; /* Centra las tarjetas en la pantalla */
+    gap: 5px;
+}
+
+.imagen-producto{
+    width: 100%;
+    border-radius: 11px;
+    overflow: hidden;
+}
+.imagen-producto img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
