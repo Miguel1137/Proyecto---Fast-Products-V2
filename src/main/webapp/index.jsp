@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesion - Fast Products</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header style="display: block; margin-bottom: 2%;">
+        <img src="images/FastProducts.jpeg" alt="Logo de FastProducts" width="200" height="200">
+        <h1>FastProducts</h1>
+    </header>
+    <main>
+    <div id="bloqueInformacion">
+        <div class="headerLogin">
+            <h2>Inicio de Sesion</h2>
+            <h4>Ingrese los datos de usuario correspondientes</h4>
+        </div>
+        
+        <form action="LoginServlet" method="POST" class="formularioLogin">
+            <div class="grupoInput">
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" name="user" placeholder="Ingrese su usuario">
+            </div>
+
+            <div class="grupoInput">
+                <label for="password">Contrasena</label>
+                <input type="password" id="password" name="password" placeholder="••••••••">
+            </div>
+
+            <button type="submit" class="botonLogin">Ingresar</button>
+        </form>
+        <% if (request.getAttribute("error") != null) { %>
+            <p class="error-Inicio-Sesion">
+                <%= request.getAttribute("error") %>
+            </p>
+        <% } %>
+    </div>
+</main>
+<footer>
+</footer>
+</body>
+</html>
+    <footer>
+
+    </footer>
+</body>
+</html>
