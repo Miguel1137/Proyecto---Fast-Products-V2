@@ -22,7 +22,7 @@
             <h4>Ingrese los datos de usuario correspondientes</h4>
         </div>
         
-        <form action="LoginServlet" method="POST" class="formularioLogin">
+        <form action="LoginServlet" method="POST" class="formulario">
             <div class="grupoInput">
                 <label for="usuario">Usuario</label>
                 <input type="text" id="usuario" name="user" placeholder="Ingrese su usuario">
@@ -33,7 +33,7 @@
                 <input type="password" id="password" name="password" placeholder="••••••••">
             </div>
 
-            <button type="submit" class="botonLogin">Ingresar</button>
+            <button type="submit" class="botonIngresar">Ingresar</button>
         </form>
         <% if (request.getAttribute("error") != null) { %>
             <p class="error-Inicio-Sesion">

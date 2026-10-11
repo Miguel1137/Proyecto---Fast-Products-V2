@@ -599,7 +599,7 @@ input, label {
 }
 
 
-
+/*para interfaz de inicio de sesion y de crear producto*/
 #bloqueInformacion {
     width: 100%;
     max-width: 420px; /* Tamaño ideal y profesional para una tarjeta de login */
@@ -626,7 +626,7 @@ input, label {
     font-size: 0.95rem;
 }
 
-.formularioLogin {
+.formulario{
     display: flex;
     flex-direction: column;
     gap: 15px; /* Espacio uniforme entre los campos del formulario */
@@ -641,13 +641,15 @@ input, label {
 .grupoInput label {
     font-weight: 600;
     font-size: 0.9rem;
-    color: #444;
+    color: #161616;
     margin-left: 5px;
 }
 
 /* Estilo unificado para los inputs del login para que mantengan la línea estética */
-.formularioLogin input[type="text"],
-.formularioLogin input[type="password"] {
+.grupoInput input[type="text"],
+.grupoInput input[type="password"],
+.grupoInput input[type="number"]
+ {
     height: 45px;
     border-radius: 11px;
     border: 1px solid #c79595;
@@ -661,12 +663,13 @@ input, label {
 }
 
 /* Cambia sutilmente el color al enfocar el input */
-.formularioLogin input[type="text"]:focus,
-.formularioLogin input[type="password"]:focus {
+.grupoInput input[type="text"]:focus,
+.grupoInput input[type="password"]:focus,
+.grupoInput input[type="number"]:focus {
     border-color: #a05a5a;
 }
 
-.botonLogin {
+.botonIngresar {
     height: 45px;
     border-radius: 16px;
     color: rgb(0, 0, 0);
@@ -680,7 +683,7 @@ input, label {
     transition: background-color 0.2s;
 }
 
-.botonLogin:hover {
+.botonIngresar:hover {
     background-color: #cbb4b4;
 }
 
@@ -764,3 +767,67 @@ input, label {
     object-position: center;
     display: block;
 }
+
+
+/*Interfaz para creacion de productos*/
+
+/*para interfaz de inicio de sesion y de crear producto
+#bloqueInformacion {
+    width: 100%;
+    max-width: 420px; 
+    background-color: #fff; 
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); 
+    box-sizing: border-box;
+}.formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+.grupoInput {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.grupoInput label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #161616;
+    margin-left: 5px;
+}
+.grupoInput input[type="text"],
+.grupoInput input[type="password"] {
+    height: 45px;
+    border-radius: 11px;
+    border: 1px solid #c79595;
+    background-color: #E9B6B6;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+    color: #000;
+}*/
+
+.cantidades{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+}
+.grupoInput input #cantidadMin{
+    width: 100%;          /* Ocupa el espacio disponible del contenedor */
+    max-width: 80px;
+}
+
+
+/*
+
+
+para interfaz de inicio de sesion y de crear producto*/
+
+
+
+/*Interfaz para creacion de productos*/
