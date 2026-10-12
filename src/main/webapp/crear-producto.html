@@ -29,44 +29,44 @@
     </header>
     <main>
         <div id="bloqueInformacion">
-        <div class="headerLogin">
-            <h2>Crear nuevo Producto</h2>
-            <h4>Ingrese la informacion correspondiente a su producto</h4>
-            <h4>los campos con "*" son obligatorios</h4>
+            <div class="headerLogin">
+                <h2>Crear nuevo Producto</h2>
+                <h4>Ingrese la informacion correspondiente a su producto</h4>
+                <h4>los campos con " * " son obligatorios</h4>
+            </div>
+
+            <form action="RegistrarProducto" method="POST" class="formulario">
+                <div class="grupoInput">
+                    <label for="nombreproducto">Nombre del producto *</label>
+                    <input type="text" id="nompreProducto" name="nombreProducto" placeholder="Ingresar nombre">
+                </div>
+
+                <div class="grupoInput">
+                    <label for="descripcion">Descripcion</label>
+                    <input type="text" id="descripcion" name="descripcion" placeholder="Ingresar descripcion">
+                </div>
+
+                <div class="grupoPequeños">
+                    <div class="grupoInput">
+                        <label for="cantidaddisp.">Unidades disponibles *</label>
+                        <input type="number" id="cantidadDisp" name="cantidadDisp" placeholder="Disp.">
+                    </div>
+
+                    <div class="grupoInput">
+                        <label for="cantidadmin">Unidades de alerta</label>
+                        <input type="number" id="cantidadMin" name="cantidadMin" placeholder="Min.">
+                    </div>
+
+                    <div class="grupoInput">
+                        <label for="talla">Talla</label>
+                        <input type="text" id="talla" name="talla" placeholder="Talla">
+                    </div>
+                </div>
+
+                <button type="submit" class="botonConfirmar">Registrar producto</button>
+            </form>
+
         </div>
-        
-        <form action="LoginServlet" method="POST" class="formulario">
-            <div class="grupoInput">
-                <label for="nombreproducto">Nombre del producto *</label>
-                <input type="text" id="nompreProducto" name="nompreProducto" placeholder="Ingresar nombre">
-            </div>
-
-            <div class="grupoInput">
-                <label for="descripcion">Descripcion</label>
-                <input type="text" id="descripcion" name="descripcion" placeholder="Ingresar descripcion">
-            </div>
-
-            <div class="cantidades">
-                <div class="grupoInput">
-                    <label for="cantidaddisp.">Cantidad disponible</label>
-                    <input type="number" id="cantidadDisp" name="cantidadDisp" placeholder="Disponible">
-                </div>
-                <div class="grupoInput">
-                    <label for="cantidadmin">Cantidad de alerta</label>
-                    <input type="number" id="cantidadMin" name="cantidadMin" placeholder="Minimo">
-                </div>
-            </div>
-
-            <div class="grupoInput">
-                <label for="talla">Talla</label>
-                <input type="text" id="talla" name="talla" placeholder="Talla">
-            </div>
-            
-
-            <button type="submit" class="botonIngresar">Registrar producto</button>
-        </form>
-        
-    </div>
     </main>
 </body>
 </html>

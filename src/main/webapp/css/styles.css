@@ -606,7 +606,7 @@ input, label {
     background-color: #fff; /* O el color de fondo que prefieras para la tarjeta */
     padding: 30px;
     border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sutil sombra para darle profundidad */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.564); /* Sutil sombra para darle profundidad */
     box-sizing: border-box;
 }
 
@@ -658,6 +658,7 @@ input, label {
     padding-right: 15px;
     font-size: 1rem;
     outline: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sutil sombra para darle profundidad */
     box-sizing: border-box;
     color: #000;
 }
@@ -667,9 +668,11 @@ input, label {
 .grupoInput input[type="password"]:focus,
 .grupoInput input[type="number"]:focus {
     border-color: #a05a5a;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.544) /*Sutil sombra para darle profundidad */
+
 }
 
-.botonIngresar {
+.botonConfirmar {
     height: 45px;
     border-radius: 16px;
     color: rgb(0, 0, 0);
@@ -683,7 +686,7 @@ input, label {
     transition: background-color 0.2s;
 }
 
-.botonIngresar:hover {
+.botonConfirmar:hover {
     background-color: #cbb4b4;
 }
 
@@ -798,7 +801,8 @@ input, label {
     margin-left: 5px;
 }
 .grupoInput input[type="text"],
-.grupoInput input[type="password"] {
+.grupoInput input[type="number"]
+ {
     height: 45px;
     border-radius: 11px;
     border: 1px solid #c79595;
@@ -809,17 +813,48 @@ input, label {
     outline: none;
     box-sizing: border-box;
     color: #000;
-}*/
+}
 
-.cantidades{
+Cambia sutilmente el color al enfocar el input
+.grupoInput input[type="text"]:focus,
+.grupoInput input[type="number"]:focus {
+    border-color: #a05a5a;
+}
+
+.botonConfirmar {
+    height: 45px;
+    border-radius: 16px;
+    color: rgb(0, 0, 0);
+    background-color: #D9C6C6;
+    border: 2px outset #b59898;
+    outline: none;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.botonConfirmar:hover {
+    background-color: #cbb4b4;
+}
+*/
+
+.grupoPequeños{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 15px;
+    flex-wrap: wrap;
 }
-.grupoInput input #cantidadMin{
+.grupoInput input#cantidadMin,
+.grupoInput input#cantidadDisp {
     width: 100%;          /* Ocupa el espacio disponible del contenedor */
-    max-width: 80px;
+    max-width: 100px;
+}
+#talla{
+    width: 100%;          /* Ocupa el espacio disponible del contenedor */
+    max-width: 100px; 
 }
 
 

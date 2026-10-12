@@ -1,4 +1,4 @@
-package com.FastProducts.controladores;
+package com.mycompany.fastproductswithmaven.controladores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
