@@ -8,43 +8,42 @@
     <name>FastProductsWithMaven-1.0-SNAPSHOT</name>
     
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <jakartaee>8.0</jakartaee>
     </properties>
     
     <dependencies>
+        <!-- Dependencia oficial de Servlets para Tomcat 10.1 (Jakarta EE 10) -->
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>${jakartaee}</version>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- Conector JDBC para MySQL -->
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
             <version>8.3.0</version>
         </dependency>
+        
+        <dependency>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     
      <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>3.3.2</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.3.2</version>
+                <version>3.4.0</version>
             </plugin>
         </plugins>
     </build>
