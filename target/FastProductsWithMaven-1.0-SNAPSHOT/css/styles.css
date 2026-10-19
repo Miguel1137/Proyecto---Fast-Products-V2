@@ -1,0 +1,868 @@
+/*ESTILOS GENERALES*/
+body {
+    -webkit-user-select: none; /* Para Safari / Chrome antiguo */
+    -moz-user-select: none;    /* Para Firefox */
+    -ms-user-select: none;     /* Para Internet Explorer / Edge antiguo */
+    /*propiedad estándar*/
+    user-select: none;
+
+    background-color: #FEF7FF ;
+    font-family: 'PT Sans Narrow', sans-serif;
+    border: 6px solid #d98e8ecb;
+
+    margin: 0%;
+    padding: 2%;
+}
+
+img{
+    border-radius: 11px;
+}
+
+h1 {
+    margin-left: 30px;
+    color: #d98e8ecb   
+}
+h3 {
+    font-weight: 400;
+}
+
+span {
+    font-weight: 400;
+}
+
+p{
+    font-weight: 500;
+}
+a {
+    color: inherit; 
+    text-decoration: none;;
+    padding: 8px;
+}
+
+
+
+
+/*COMPONENTES ESPECIFICOS*/
+nav {
+    display: flex;
+    margin-left: auto;
+}
+input, label {
+    display: block; /* Esto hace que cada uno ocupe su propia línea */
+    margin-bottom: 10px; /* Un pequeño espacio entre ellos */
+}
+
+
+
+
+/*CLASES*/
+
+/*ESTILOS GENERALES*/
+
+.Botones-Principales{
+     /* Hace que los botones compartan el espacio de manera flexible */
+    max-width: 200px; /* Evita que crezcan demasiado en pantallas gigantes */
+    height: 40px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    border-radius: 16px;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in, 
+                transform 0.3s ease;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    flex: 1;
+    
+    text-decoration: none;
+}  
+
+.Botones-Principales:hover{
+    background-color: red;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    font-style: bold;
+    transform: translateY(-3px);
+}
+.Botones-Principales:active{
+    transform: scale(0,9);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
+    transform: scaleX(0.9);
+}
+
+
+.italica {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
+/*ESTILOS GENERALES*/
+
+
+
+/*inventario*/
+
+
+
+/*HEADER*/
+.headerBasico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.headerInterno {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between; /* Envía el logo a la izquierda y el nav a la derecha */
+    margin: 3%;
+    gap: 15px; /* Espacio de seguridad por si bajan de línea en pantallas pequeñas */
+}
+
+.logo {
+    text-align: center;    
+    margin-top: 10px
+}
+
+/* OPCIONES DE NAVEGACION */
+.nav-interfaz {
+    color: rgba(0,0,0,0.6); 
+    font-weight: 700;
+    margin: 0; /* Quitamos márgenes por defecto de los h3 para que el gap del flex funcione bien */
+}
+
+.activo {
+    font-size: 25px;
+    color: rgba(0,0,0,1);
+}
+
+/*OPCIONES DE NAVEGACION*/
+/*HEADER*/
+
+
+/*BARRA DE NAVEGACION*/
+#opcionesBusqueda{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem;
+    margin-left: 3rem;
+    margin-bottom:4%;
+    margin-right: 3rem;
+    flex-wrap: wrap;
+    gap: 15px;
+
+}
+#SeleccionVista{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-items: space-between;
+    gap: 10px;
+}
+.distribucion-botones-vista{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.BotonesNavegacion{
+    
+    outline: none;
+    height: 33px; 
+    content:center; 
+    margin-left: 0px;
+    margin-right: 3px;
+    padding-left: 12px; 
+    padding-right:12px;
+    border-radius: 16px;
+    color: rgb(0,0,0);
+    background-color: #D9C6C6;
+    font-weight: 500;
+    border-style: outset;
+    border-width: 2px;
+}
+.casilla-bus-txt {
+    height:25px; 
+    outline: none;
+    padding:0px 60px 0px 20px; 
+    border:1px solid rgba(0,0,0,1);
+    border-radius: 11px;  
+    margin-right: 5px; 
+    color: rgba(0,0,0,1); 
+    font-weight: 150;
+    
+}
+.vista-txt {
+    margin-right: 10px;
+    margin-top: 0%;
+    padding-top: 0%;
+}
+.contenedor-busqueda {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+/*BARA DE NAVEGACION*/
+
+
+/*INICIO DE SESION*/
+.error-Inicio-Sesion{
+    font-size: large;
+    font-weight: bold;
+
+       
+}
+
+/*INICIO DE SESION*/
+/*PRODUCTOS*/
+#inventario {
+    margin: 0 auto; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+.tarjetaProducto{
+    max-width: 220px;
+    max-height: 350px;
+    height: auto;
+    width: 200px;
+    background-color: #e9b6b6 ;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 11%;
+    box-shadow: 0 4px 20px rgba(31, 30, 30, 0.582);
+}
+.tarjetaProducto :hover{
+    transform: scale(0,9);
+    transform: scaleX(0,9);
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(31, 30, 30, 0.822);
+}
+/*PRODUCTOS*/
+
+/*CUENTA*/
+
+
+/*CUENTA*/
+
+
+
+
+
+
+
+
+#baseBoton {
+    position: fixed;
+    bottom: 50px;
+    right: 125px;
+    box-shadow: 0 4px 20px rgba(31, 30, 30, 0.582);
+
+}
+.boton-despl{
+    width: 50px;
+    height: 50px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: xx-large;
+    font-weight: 400;
+
+    border-radius: 50%;
+    background-color: #D9C6C6;
+}
+.reg-prod{
+    position: absolute;
+    bottom:57px;
+
+    width: 52px;
+    height: 52px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: xx-large;
+    font-weight: 400;
+
+    border-radius: 50%;
+    background-color: #D9C6C6;
+
+}
+.ret-prod {
+    position: absolute;
+    right:57px;
+
+    width: 52px;
+    height: 52px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: xx-large;
+    font-weight: 400;
+
+    border-radius: 50%;
+    background-color: #D9C6C6;
+}
+
+/*Estilos para Enlistado*/
+
+/*Fase 1- generacion del campo para las tarjetas*/
+.campoEnlistado{
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+/*Generacion de tarjeta*/
+.tarjetaEnlistada{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+
+    height: 110px;
+
+    margin-top: 20px;
+    padding-right: auto;
+    
+    border-radius: 11px;
+    background-color: #d98e8ecb;
+}
+
+/*Segunda capa de tarjeta - distribuye a la izquierda los datos generales*/
+.seccionDatosPrincipal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 110px;
+}
+.nombreTarjetas{
+
+    display: inline-block;
+    align-content: center;
+
+    height: 50px;
+
+    margin-left: 20px;
+    
+    font-weight: 700;
+    font-size: x-large;
+
+}
+
+/*Tercera capa de tarjeta - Distribuye los datos textuales*/
+.seccionDatosSecundaria{
+    height: 110px;
+}
+
+/*Cuarta capa de tarjeta - distribuye datos textuales secundarios*/
+.seccionDatosTerciaria{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.datosInternos{
+
+    display: block;
+    align-content: center;
+
+    margin-right:65px;
+    margin-left: 30px;
+
+    font-weight: 400;
+
+}
+
+.datosIndividuales{
+    display: block;
+}
+
+.boton{
+
+    content:center; 
+
+    height: 35px; 
+
+    margin-right: 20px;
+    padding-left: 12px; 
+    padding-right:12px;
+
+    border-radius: 16px;
+    color: rgb(0,0,0);
+    background-color: #D9C6C6;
+    border-style: outset;
+    border-width: 2px;
+    outline: none;
+
+    font-weight: 500;
+}
+
+#opcionesConfiguracion {
+    width: 100%;
+    max-width: 600px; /* Limita el ancho en pantallas grandes para que no se estire de más */
+    margin: 0 auto;    /* Centra automáticamente el bloque sin importar el zoom */
+    height: auto;
+    display: block;
+    box-sizing: border-box;
+    padding: 0 15px;width: 100%;
+    max-width: 600px; /* Limita el ancho en pantallas grandes para que no se estire de más */
+    margin: 0 auto;    /* Centra automáticamente el bloque sin importar el zoom */
+    height: auto;
+    display: block;
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+
+/*Bloque de informacion para cuenta*/
+#bloqueInformacion {
+    /* Eliminamos los 450px fijos. Usamos un ancho fluido con un límite máximo */
+    width: 100%;
+    max-width: 600px; /* Limita el ancho en pantallas grandes para que no se estire de más */
+    margin: 0 auto;    /* Centra automáticamente el bloque sin importar el zoom */
+    height: auto;
+    display: block;
+    box-sizing: border-box;
+    padding: 0 15px;   /* Un respiro seguro en pantallas muy pequeñas */
+}
+
+.casillasInformacion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px; /* Espaciado moderno y uniforme entre cada sección */
+}
+
+.etiquetaInformacion {
+    /* Usamos margin relativo o block con padding para evitar saltos bruscos */
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.casillaDatos {
+    display: flex; /* Cambiado a flex para un centrado vertical perfecto y limpio */
+    align-items: center;
+    border-radius: 11px;
+    border: 1px solid #c79595;
+    height: 40px;
+    width: 100%; /* Ocupa el 100% de su contenedor padre de manera fluida */
+    background-color: #E9B6B6;
+    padding-left: 10px; /* Reemplaza text-indent para mejor soporte */
+    box-sizing: border-box;
+}
+
+.casillaPermisos {
+    display: flex;
+    flex-direction: column;
+    border-radius: 11px;
+    border: 1px solid #c79595;
+    width: 100%;
+    background-color: #E9B6B6;
+    padding: 18px 20px; /* Padding simétrico */
+    box-sizing: border-box;
+}
+
+.permiso {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px 0;
+}
+
+.seccionBotones {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px; /* Evita que los botones se peguen si la pantalla se reduce */
+    margin-top: 25px;
+}
+
+.botonInformacion {
+    flex: 1; /* Hace que los botones compartan el espacio de manera flexible */
+    max-width: 200px; /* Evita que crezcan demasiado en pantallas gigantes */
+    height: 40px;
+    border-radius: 16px;
+    color: rgb(0,0,0);
+    background-color: #D9C6C6;
+    border: 2px outset #b59898;
+    outline: none;
+    font-weight: 500;
+    cursor: pointer;
+    
+    /* Centrado de contenido interno */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Opcional: si tienes un enlace dentro del botón de cerrar sesión para que no rompa estilos */
+.botonInformacion a {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Bloque de MAIN configuracion*/
+#opcionesConfiguracion{
+    display: flex;
+    justify-content: space-between;
+    
+    /*margin-top: 50px;*/
+    margin-left: 290px;
+    margin-right: 290px;
+    margin-bottom: 100px;
+
+    height: auto;
+    
+}
+.titulosConfiguracion{
+    margin-left: 0px;
+    color: black;
+}
+.administracionUsuarios{
+    display: block;
+    
+    height: auto;
+}
+
+.seccionBotonesAdmUs{
+    display: flex;
+    flex-direction: column;
+
+    height: auto;
+}
+.botonAdminUs{
+
+    content:center; 
+
+    height: 35px; 
+
+    padding-left: 12px; 
+    padding-right:12px;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 20px;
+
+    border-radius: 16px;
+    color: rgb(0,0,0);
+    background-color: #D9C6C6;
+    border-style: outset;
+    border-width: 2px;
+    outline: none;
+
+    font-weight: 500;
+}
+.limpiezaSistema{
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    height: 250px;
+}
+.botonLimpieza{
+    content:center; 
+
+    height: 35px; 
+
+    padding-left: 12px; 
+    padding-right:12px;
+    
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+    border-radius: 16px;
+    color: rgb(0,0,0);
+    
+    border-style: outset;
+    border-width: 2px;
+    outline: none;
+
+    font-weight: 500;
+}
+
+
+/*para interfaz de inicio de sesion y de crear producto*/
+#bloqueInformacion {
+    width: 100%;
+    max-width: 420px; /* Tamaño ideal y profesional para una tarjeta de login */
+    background-color: #fff; /* O el color de fondo que prefieras para la tarjeta */
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.564); /* Sutil sombra para darle profundidad */
+    box-sizing: border-box;
+}
+
+.headerLogin {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.headerLogin h2 {
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.headerLogin h4 {
+    color: #666;
+    font-weight: 400;
+    font-size: 0.95rem;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio uniforme entre los campos del formulario */
+}
+
+.grupoInput {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.grupoInput label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #161616;
+    margin-left: 5px;
+}
+
+/* Estilo unificado para los inputs del login para que mantengan la línea estética */
+.grupoInput input[type="text"],
+.grupoInput input[type="password"],
+.grupoInput input[type="number"]
+ {
+    height: 45px;
+    border-radius: 11px;
+    border: 1px solid #c79595;
+    background-color: #E9B6B6;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sutil sombra para darle profundidad */
+    box-sizing: border-box;
+    color: #000;
+}
+
+/* Cambia sutilmente el color al enfocar el input */
+.grupoInput input[type="text"]:focus,
+.grupoInput input[type="password"]:focus,
+.grupoInput input[type="number"]:focus {
+    border-color: #a05a5a;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.544) /*Sutil sombra para darle profundidad */
+
+}
+
+.botonConfirmar {
+    height: 45px;
+    border-radius: 16px;
+    color: rgb(0, 0, 0);
+    background-color: #D9C6C6;
+    border: 2px outset #b59898;
+    outline: none;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.botonConfirmar:hover {
+    background-color: #cbb4b4;
+}
+
+
+@media (max-width: 768px) {
+    #opcionesBusqueda{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem;
+    margin-left: 3rem;
+    margin-bottom:4%;
+    margin-right: 3rem;
+    flex-wrap: wrap;
+    gap: 15px;
+
+}
+.headerInterno {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between; /* Envía el logo a la izquierda y el nav a la derecha */
+    margin: 3%;
+    gap: 15px; /* Espacio de seguridad por si bajan de línea en pantallas pequeñas */
+}
+}
+
+
+
+/*Interfaz del producto*/
+.contenedor-tarjeta-productos{
+    display: flex;  
+    flex-direction: column;      /*alinea en fila */
+    align-items: center;/* Si las tarjetas no caben a lo ancho, se bajan solas a la siguiente línea */
+    justify-content: center;
+}
+.contenedor-datos-producto{
+    display: flex;  
+    flex-direction: column;      /*alinea en fila */
+    align-items: center;/* Si las tarjetas no caben a lo ancho, se bajan solas a la siguiente línea */
+    justify-content: center; /* Centra las tarjetas en la pantalla */
+    gap: 5px;              /* Crea un espacio exacto de 20px entre cada tarjeta (¡sin pelear con márgenes!) */
+    padding: 20px;
+    
+    background-color: white;
+    border: 1px solid rgb(0, 0, 0); /* Usando tu color rosa suave */
+    border-radius: 8px;
+    padding: 20px;    margin-top: 20px;
+
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+
+    /* Esto define el tamaño base de la tarjeta (ej. 280px) pero le permite crecer si es necesario */
+    flex: 1 1 auto; 
+    
+    width: 50%;
+    /* Opcional: Define un ancho máximo para que no se estiren demasiado en pantallas gigantes */
+    max-width: 500px; 
+    
+    box-sizing: border-box;
+}
+.datos-textuales{
+    display: flex;
+    flex-direction: column;
+    justify-content:left; /* Centra las tarjetas en la pantalla */
+    gap: 5px;
+}
+
+.imagen-producto{
+    width: 100%;
+    border-radius: 11px;
+    overflow: hidden;
+}
+.imagen-producto img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+
+/*Interfaz para creacion de productos*/
+
+/*para interfaz de inicio de sesion y de crear producto
+#bloqueInformacion {
+    width: 100%;
+    max-width: 420px; 
+    background-color: #fff; 
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); 
+    box-sizing: border-box;
+}.formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+.grupoInput {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.grupoInput label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #161616;
+    margin-left: 5px;
+}
+.grupoInput input[type="text"],
+.grupoInput input[type="number"]
+ {
+    height: 45px;
+    border-radius: 11px;
+    border: 1px solid #c79595;
+    background-color: #E9B6B6;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+    color: #000;
+}
+
+Cambia sutilmente el color al enfocar el input
+.grupoInput input[type="text"]:focus,
+.grupoInput input[type="number"]:focus {
+    border-color: #a05a5a;
+}
+
+.botonConfirmar {
+    height: 45px;
+    border-radius: 16px;
+    color: rgb(0, 0, 0);
+    background-color: #D9C6C6;
+    border: 2px outset #b59898;
+    outline: none;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.botonConfirmar:hover {
+    background-color: #cbb4b4;
+}
+*/
+
+.grupoPequeños{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.grupoInput input#cantidadMin,
+.grupoInput input#cantidadDisp {
+    width: 100%;          /* Ocupa el espacio disponible del contenedor */
+    max-width: 100px;
+}
+#talla{
+    width: 100%;          /* Ocupa el espacio disponible del contenedor */
+    max-width: 100px; 
+}
+
+
+/*
+
+
+para interfaz de inicio de sesion y de crear producto*/
+
+
+
+/*Interfaz para creacion de productos*/

@@ -1,11 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package com.mycompany.fastproductswithmaven.controladores;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,11 +9,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import com.mycompany.fastproductswithmaven.config.conexion;
 
-/**
- *
- * @author miguel
- */
 @WebServlet(name = "registrarProducto", urlPatterns = {"/registrarProducto"})
 public class RegistrarProducto extends HttpServlet {
     
@@ -30,11 +22,16 @@ public class RegistrarProducto extends HttpServlet {
         
         String nombreProducto = request.getParameter("nombreProducto");
         String descripcion = request.getParameter("descripcion");
-        String cantidadDisp = request.getParameter("cantidadDisp");
-        String cantidadMin = request.getParameter("cantidadMin");
+        String cantidadDispStr = request.getParameter("cantidadDisp");
+        String cantidadMinStr = request.getParameter("cantidadMin");
         String talla = request.getParameter("talla");
         String precioStr = request.getParameter("precio");
         
+        Double precio;
+        int cantidadDisp = 0;
+        int cantidadMin = 0;
+        
+        // Validar campos obligatorios
         if (nombreProducto == null || nombreProducto.isBlank()
                 || precioStr == null || precioStr.isBlank()) {
             response.sendError(
@@ -44,44 +41,45 @@ public class RegistrarProducto extends HttpServlet {
             return;
         }
         
-        Double precio;
-                
+        //validaciones de precios en negativo
         try {
-            precio= Double.parseDouble(precioStr);
+            precio = Double.parseDouble(precioStr);
             if (precio < 0) {
-                response.sendError(
-                        HttpServletResponse.SC_BAD_REQUEST,
-                        "El precio no puede ser negativo."
-                );
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "El precio no puede ser negativo.");
                 return;
             }
+            
+            // Convertir cantidades de String a int de forma segura
+            cantidadDisp = cantidadDispStr != null && !cantidadDispStr.isBlank() ? Integer.parseInt(cantidadDispStr) : 0;
+            cantidadMin = cantidadMinStr != null && !cantidadMinStr.isBlank() ? Integer.parseInt(cantidadMinStr) : 0;
+            
         } catch (NumberFormatException e) {
             response.sendError(
                     HttpServletResponse.SC_BAD_REQUEST,
-                    "El precio debe ser un número válido."
+                    "Los campos numéricos de precio y cantidades deben ser válidos."
             );
             return;
         }
 
-        String sql =
-                "INSERT INTO tabla_productos"+"(nombre_producto, descripcion, cantidad_disponible, cantidad_minima, talla)"
-                +"VALUES (?, ?, ?, ?, ?)";
+        // Se incluye el precio en la sentencia SQL (asegúrate de que tu tabla tenga la columna precio)
+        String sql = "INSERT INTO productos (nombre_producto, descripcion, cantidad_disponible, cantidad_minima, talla, precio) "
+                   + "VALUES (?, ?, ?, ?, ?, ?)";
 
-        try (Connection Conexion = conexion.obtenerConexion();
-            PreparedStatement sentencia = conexion.prepareStatement(sql)) {
+        // Usamos ConexionDB (o el nombre real de tu clase de conexión)
+        try (Connection conexionDB = conexion.obtenerConexion();
+            PreparedStatement sentencia = conexionDB.prepareStatement(sql))  {
 
             sentencia.setString(1, nombreProducto);
             sentencia.setString(2, descripcion);
             sentencia.setInt(3, cantidadDisp);
             sentencia.setInt(4, cantidadMin);
-            sentencia.setInt(5, talla);
+            sentencia.setString(5, talla); // Si la talla es texto (ej: M, L), va con setString
+            sentencia.setDouble(6, precio); // Agregamos el precio convertido
 
             int filasInsertadas = sentencia.executeUpdate();
 
             if (filasInsertadas == 1) {
-                response.sendRedirect(
-                        request.getContextPath() + "/alertas.html"
-                );
+                response.sendRedirect(request.getContextPath() + "/alertas.html");
             } else {
                 response.sendError(
                         HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
@@ -90,14 +88,11 @@ public class RegistrarProducto extends HttpServlet {
             }
 
         } catch (SQLException e) {
-            // Registrar el detalle en los logs del servidor.
             getServletContext().log("Error guardando el producto", e);
-
             response.sendError(
                     HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
                     "Ocurrió un error al guardar el producto."
             );
         }
-        
-    } 
+    }
 }

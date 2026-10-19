@@ -1,4 +1,6 @@
+com\mycompany\fastproductswithmaven\controladores\LoginServlet.class
+com\mycompany\fastproductswithmaven\controladores\RegistrarProducto.class
+com\mycompany\fastproductswithmaven\JAXRSConfiguration.class
 com\mycompany\fastproductswithmaven\config\conexion.class
 com\mycompany\fastproductswithmaven\controladores\LogOutServlet.class
-com\mycompany\fastproductswithmaven\controladores\LoginServlet.class
-com\mycompany\fastproductswithmaven\JAXRSConfiguration.class
+com\mycompany\fastproductswithmaven\resources\JavaEE8Resource.class

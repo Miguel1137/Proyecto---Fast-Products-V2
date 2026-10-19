@@ -35,7 +35,7 @@
                 <h4>los campos con " * " son obligatorios</h4>
             </div>
 
-            <form action="RegistrarProducto" method="POST" class="formulario">
+            <form action="registrarProducto" method="POST" class="formulario">
                 <div class="grupoInput">
                     <label for="nombreproducto">Nombre del producto *</label>
                     <input type="text" id="nompreProducto" name="nombreProducto" placeholder="Ingresar nombre">
@@ -61,6 +61,11 @@
                         <label for="talla">Talla</label>
                         <input type="text" id="talla" name="talla" placeholder="Talla">
                     </div>
+                    <div class="grupoInput">
+                        <label for="precio">Precio *</label>
+                        <input type="number" step="0.01" id="precio" name="precio" placeholder="Precio">
+                    </div>
+                    
                 </div>
 
                 <button type="submit" class="botonConfirmar">Registrar producto</button>

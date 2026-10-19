@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Producto - Fast Products</title>
+    <link rel="stylesheet" href="css/styles.css">      
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">     
+</head>
+<body>
+    <header id="header" class="headerInterno"><!-- header -->
+        <div style="display: flex; align-items: center; ">
+            <a style=" color: rgb(255, 255, 255);" href="inventario.html">
+                <img class="logo" src="images/FastProducts.jpeg" alt="Logo FastProducts" width="60" height="60"> 
+            </a>
+            <h1 class="italica"><a href="inventario.html" ><i>Fast Products</i></a></h1>
+        </div>
+        
+        <nav>
+            <h3 id="navbar-inicio" class="nav-interfaz"><a href="inventario.html" >Inicio</a></h3>
+            <h3 id="navbar-alertas" class="nav-interfaz"><a href="alertas.html">Alertas</a></h3>
+            <h3 id="navbar-reportes" class="nav-interfaz"><a href="reportes.html" >Reportes</a></h3>
+            <h3 id="navbar-cuenta" class="nav-interfaz"><a href="cuenta.html" >Cuenta</a></h3>
+            <h3 id="navbar-configuracion" class="nav-interfaz"><a href="configuracion.html" >Configuracion</a></h3>
+        </nav>
+    </header>
+    <main>
+        <div id="bloqueInformacion">
+            <div class="headerLogin">
+                <h2>Crear nuevo Producto</h2>
+                <h4>Ingrese la informacion correspondiente a su producto</h4>
+                <h4>los campos con " * " son obligatorios</h4>
+            </div>
+
+            <form action="registrarProducto" method="POST" class="formulario">
+                <div class="grupoInput">
+                    <label for="nombreproducto">Nombre del producto *</label>
+                    <input type="text" id="nompreProducto" name="nombreProducto" placeholder="Ingresar nombre">
+                </div>
+
+                <div class="grupoInput">
+                    <label for="descripcion">Descripcion</label>
+                    <input type="text" id="descripcion" name="descripcion" placeholder="Ingresar descripcion">
+                </div>
+
+                <div class="grupoPequeños">
+                    <div class="grupoInput">
+                        <label for="cantidaddisp.">Unidades disponibles *</label>
+                        <input type="number" id="cantidadDisp" name="cantidadDisp" placeholder="Disp.">
+                    </div>
+
+                    <div class="grupoInput">
+                        <label for="cantidadmin">Unidades de alerta</label>
+                        <input type="number" id="cantidadMin" name="cantidadMin" placeholder="Min.">
+                    </div>
+
+                    <div class="grupoInput">
+                        <label for="talla">Talla</label>
+                        <input type="text" id="talla" name="talla" placeholder="Talla">
+                    </div>
+                    <div class="grupoInput">
+                        <label for="precio">Precio *</label>
+                        <input type="number" step="0.01" id="precio" name="precio" placeholder="Precio">
+                    </div>
+                    
+                </div>
+
+                <button type="submit" class="botonConfirmar">Registrar producto</button>
+            </form>
+
+        </div>
+    </main>
+</body>
+</html>
