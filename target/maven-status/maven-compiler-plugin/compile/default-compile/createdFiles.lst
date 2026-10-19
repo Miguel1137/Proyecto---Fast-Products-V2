@@ -1,3 +1,4 @@
+com\mycompany\fastproductswithmaven\controladores\ListarProductos.class
 com\mycompany\fastproductswithmaven\controladores\LoginServlet.class
 com\mycompany\fastproductswithmaven\controladores\RegistrarProducto.class
 com\mycompany\fastproductswithmaven\JAXRSConfiguration.class

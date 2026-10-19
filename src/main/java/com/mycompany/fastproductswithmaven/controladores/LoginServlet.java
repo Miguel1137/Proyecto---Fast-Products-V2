@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
             // Credenciales correctas: Creamos sesión y redirigimos
             HttpSession session = request.getSession();
             session.setAttribute("usuarioLogueado", usuarioIngresado);
-            response.sendRedirect("inventario.html");
+            response.sendRedirect("inventario.jsp");
             
         } else {
             request.setAttribute("error", "Usuario o contraseña incorrectos.");

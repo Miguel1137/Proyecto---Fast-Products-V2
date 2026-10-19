@@ -1,5 +1,6 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,43 +12,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header style="display: block; margin-bottom: 2%;">
-        <img src="images/FastProducts.jpeg" alt="Logo de FastProducts" width="200" height="200">
-        <h1>FastProducts</h1>
-    </header>
-    <main>
-    <div id="bloqueInformacion">
-        <div class="headerLogin">
-            <h2>Inicio de Sesion</h2>
-            <h4>Ingrese los datos de usuario correspondientes</h4>
+
+    <!-- HEADER CORREGIDO -->
+    <header class="headerLogin">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <img src="images/FastProducts.jpeg" alt="Logo de FastProducts" width="100" height="100">
+            <h1 style="margin-left: 0; margin-top: 10px;">FastProducts</h1>
         </div>
-        
-        <form action="LoginServlet" method="POST" class="formulario">
-            <div class="grupoInput">
-                <label for="usuario">Usuario</label>
-                <input type="text" id="usuario" name="user" placeholder="Ingrese su usuario">
-            </div>
+    </header>
 
-            <div class="grupoInput">
-                <label for="password">Contrasena</label>
-                <input type="password" id="password" name="password" placeholder="••••••••">
+    <main>
+        <div id="bloqueInformacion">
+            <div class="headerLogin">
+                <h2>Inicio de Sesion</h2>
+                <h4>Ingrese los datos de usuario correspondientes</h4>
             </div>
+            
+            <form action="LoginServlet" method="POST" class="formulario">
+                <div class="grupoInput">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" id="usuario" name="user" placeholder="Ingrese su usuario">
+                </div>
 
-            <button type="submit" class="botonIngresar">Ingresar</button>
-        </form>
-        <% if (request.getAttribute("error") != null) { %>
-            <p class="error-Inicio-Sesion">
-                <%= request.getAttribute("error") %>
-            </p>
-        <% } %>
-    </div>
-</main>
-<footer>
-</footer>
-</body>
-</html>
+                <div class="grupoInput">
+                    <label for="password">Contrasena</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••">
+                </div>
+
+                <!-- Cambié "botonIngresar" por "botonConfirmar" para que tome tu estilo del CSS -->
+                <button type="submit" class="botonConfirmar">Ingresar</button>
+            </form>
+            
+            <% if (request.getAttribute("error") != null) { %>
+                <p class="error-Inicio-Sesion">
+                    <%= request.getAttribute("error") %>
+                </p>
+            <% } %>
+        </div>
+    </main>
+
     <footer>
-
+        <!-- Aquí puedes poner tu footer si lo necesitas -->
     </footer>
+
 </body>
 </html>
