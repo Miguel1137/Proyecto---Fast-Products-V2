@@ -39,13 +39,23 @@
 
         <section id="inventario">
             <c:forEach var="prod" items="${productos}">
-                <a href="${pageContext.request.contextPath}/productos.jsp?id=${prod.id}">
+                <!-- Se cambió a /verProducto para que pase por el Servlet -->
+                <a href="${pageContext.request.contextPath}/verProducto?id=${prod.id}">
                     <div class="tarjetaProducto">
-                        
+
                         <div class="contenedorImagen">
-                            <img src="${pageContext.request.contextPath}/images/louis.jpg" alt="Imagen de ${prod.nombre}">
+                            <c:choose>
+                                <c:when test="${not empty prod.foto}">
+                                    <!-- Si hay foto, la carga desde la carpeta images -->
+                                    <img src="${pageContext.request.contextPath}/mostrarImagen?foto=${prod.foto}" alt="${prod.nombre}">
+                                </c:when>
+                                <c:otherwise>
+                                    <!-- Si está vacía en la BD, muestra una por defecto -->
+                                    <img src="${pageContext.request.contextPath}/images/default.jpg" alt="Sin imagen">
+                                </c:otherwise>
+                            </c:choose>
                         </div>
-                        
+
                         <div class="datosIndividuales">
                             <span>Nombre: ${prod.nombre}</span>
                             <span>Talla: ${prod.talla != null && prod.talla != '' ? prod.talla : 'N/A'}</span>
@@ -67,5 +77,6 @@
     <!-- Rutas corregidas para los Scripts -->
     <script src="${pageContext.request.contextPath}/js/header.js"></script>
     <script src="${pageContext.request.contextPath}/js/barra-busqueda.js"></script>
+    
 </body>
 </html>

@@ -24,11 +24,12 @@ public class ListarProductos extends HttpServlet {
             throws ServletException, IOException {
         
         List<Map<String, Object>> listaProductos = new ArrayList<>();
-        String sql = "SELECT id_producto, nombre_producto, talla, precio, cantidad_disponible FROM productos";
+        
+        // 1. AGREGAMOS foto_url AL SELECT
+        String sql = "SELECT id_producto, nombre_producto, talla, precio, cantidad_disponible, foto_url FROM productos";
 
         try (Connection conexionDB = conexion.obtenerConexion()) {
             
-            // Si la conexión es nula, avisamos
             if (conexionDB == null) {
                 System.out.println("¡ERROR CRÍTICO EN INVENTARIO! La conexión a MySQL devolvió null.");
                 request.setAttribute("errorDB", "No hay conexión a la base de datos.");
@@ -43,6 +44,10 @@ public class ListarProductos extends HttpServlet {
                         producto.put("talla", resultado.getString("talla"));
                         producto.put("precio", resultado.getDouble("precio"));
                         producto.put("cantidad", resultado.getInt("cantidad_disponible"));
+                        
+                        // 2. GUARDAMOS LA FOTO EN EL MAPA
+                        producto.put("foto", resultado.getString("foto_url"));
+                        
                         listaProductos.add(producto);
                     }
                     System.out.println("¡ÉXITO! Se encontraron " + listaProductos.size() + " productos en la BD.");

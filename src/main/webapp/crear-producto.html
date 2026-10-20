@@ -38,7 +38,18 @@
             <form action="registrarProducto" method="POST" class="formulario" enctype="multipart/form-data">
                 <div class="grupoInput">
                     <label for="foto">Foto del producto</label>
-                    <input type="file" id="foto" name="foto" accept="image/*">
+
+                    <!-- Contenedor personalizado -->
+                    <div class="input-archivo-personalizado">
+                        <!-- Ocultamos el input real, pero lo dejamos funcional -->
+                        <input type="file" id="foto" name="foto" accept="image/*" onchange="mostrarNombreArchivo()">
+
+                        <!-- Este label actuará como el botón que el usuario verá y presionará -->
+                        <label for="foto" class="btn btn-primary btn-md">Seleccionar imagen</label>
+
+                        <!-- Aquí mostraremos el nombre del archivo -->
+                        <span id="nombre-archivo">Ningún archivo seleccionado</span>
+                    </div>
                 </div>
                 <div class="grupoInput">
                     <label for="nombreproducto">Nombre del producto *</label>
@@ -77,5 +88,21 @@
 
         </div>
     </main>
+    
+    <script>
+        function mostrarNombreArchivo() {
+            const input = document.getElementById('foto');
+            const texto = document.getElementById('nombre-archivo');
+
+            if (input.files && input.files.length > 0) {
+                texto.textContent = input.files[0].name; // Muestra el nombre del archivo
+                texto.style.color = '#000'; // Lo pone negro para que resalte
+            } else {
+                texto.textContent = 'Ningún archivo seleccionado';
+                texto.style.color = '#555';
+            }
+        }
+    </script>
+    
 </body>
 </html>

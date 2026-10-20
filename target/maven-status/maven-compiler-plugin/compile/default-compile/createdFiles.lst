@@ -5,3 +5,4 @@ com\mycompany\fastproductswithmaven\JAXRSConfiguration.class
 com\mycompany\fastproductswithmaven\config\conexion.class
 com\mycompany\fastproductswithmaven\controladores\LogOutServlet.class
 com\mycompany\fastproductswithmaven\resources\JavaEE8Resource.class
+com\mycompany\fastproductswithmaven\controladores\MostrarImagen.class

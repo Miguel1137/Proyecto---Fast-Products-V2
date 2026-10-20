@@ -402,3 +402,37 @@ nav { display: flex; margin-left: auto; gap: 15px; }
     .seccionDatosPrincipal { flex-direction: column; align-items: flex-start; }
     .seccionDatosPrincipal img { border-radius: 11px; width: 100%; height: auto;}
 }
+
+/* ==========================================================================
+   INPUT DE ARCHIVOS PERSONALIZADO
+   ========================================================================== */
+.input-archivo-personalizado {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--card-color); /* El mismo fondo rosado de los inputs */
+    padding: 10px 15px;
+    border-radius: 11px;
+    border: 1px solid var(--border-color);
+}
+
+/* Ocultamos el input real de forma accesible */
+.input-archivo-personalizado input[type="file"] {
+    display: none; 
+}
+
+/* Estilo para el texto del nombre del archivo */
+#nombre-archivo {
+    font-size: 0.95rem;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Si el nombre es muy largo, pone "..." */
+    max-width: 200px;
+}
+
+/* Ajustamos el botón dentro de este contenedor para que no sea tan alto */
+.input-archivo-personalizado .btn {
+    height: 35px;
+    padding: 0 20px;
+}
