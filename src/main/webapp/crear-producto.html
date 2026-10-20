@@ -35,7 +35,11 @@
                 <h4>los campos con " * " son obligatorios</h4>
             </div>
 
-            <form action="registrarProducto" method="POST" class="formulario">
+            <form action="registrarProducto" method="POST" class="formulario" enctype="multipart/form-data">
+                <div class="grupoInput">
+                    <label for="foto">Foto del producto</label>
+                    <input type="file" id="foto" name="foto" accept="image/*">
+                </div>
                 <div class="grupoInput">
                     <label for="nombreproducto">Nombre del producto *</label>
                     <input type="text" id="nompreProducto" name="nombreProducto" placeholder="Ingresar nombre">
@@ -68,7 +72,7 @@
                     
                 </div>
 
-                <button type="submit" class="botonConfirmar">Registrar producto</button>
+                <button type="submit" class="btn btn-primary btn-md">Registrar producto</button>
             </form>
 
         </div>

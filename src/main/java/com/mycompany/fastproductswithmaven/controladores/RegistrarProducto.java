@@ -49,7 +49,6 @@ public class RegistrarProducto extends HttpServlet {
                 return;
             }
             
-            // Convertir cantidades de String a int de forma segura
             cantidadDisp = cantidadDispStr != null && !cantidadDispStr.isBlank() ? Integer.parseInt(cantidadDispStr) : 0;
             cantidadMin = cantidadMinStr != null && !cantidadMinStr.isBlank() ? Integer.parseInt(cantidadMinStr) : 0;
             
@@ -61,11 +60,9 @@ public class RegistrarProducto extends HttpServlet {
             return;
         }
 
-        // Se incluye el precio en la sentencia SQL (asegúrate de que tu tabla tenga la columna precio)
         String sql = "INSERT INTO productos (nombre_producto, descripcion, cantidad_disponible, cantidad_minima, talla, precio) "
                    + "VALUES (?, ?, ?, ?, ?, ?)";
 
-        // Usamos ConexionDB (o el nombre real de tu clase de conexión)
         try (Connection conexionDB = conexion.obtenerConexion();
             PreparedStatement sentencia = conexionDB.prepareStatement(sql))  {
 
@@ -73,8 +70,8 @@ public class RegistrarProducto extends HttpServlet {
             sentencia.setString(2, descripcion);
             sentencia.setInt(3, cantidadDisp);
             sentencia.setInt(4, cantidadMin);
-            sentencia.setString(5, talla); // Si la talla es texto (ej: M, L), va con setString
-            sentencia.setDouble(6, precio); // Agregamos el precio convertido
+            sentencia.setString(5, talla);
+            sentencia.setDouble(6, precio);
 
             int filasInsertadas = sentencia.executeUpdate();
 

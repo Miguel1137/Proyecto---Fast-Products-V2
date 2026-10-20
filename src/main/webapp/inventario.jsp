@@ -36,23 +36,27 @@
 
     <main>
         <section id="barraBusqueda"></section>
-        
+
         <section id="inventario">
             <c:forEach var="prod" items="${productos}">
                 <a href="${pageContext.request.contextPath}/productos.jsp?id=${prod.id}">
                     <div class="tarjetaProducto">
-                        <!-- Aquí usamos una imagen por defecto de tu carpeta images -->
+                        
+                        <div class="contenedorImagen">
+                            <img src="${pageContext.request.contextPath}/images/louis.jpg" alt="Imagen de ${prod.nombre}">
+                        </div>
+                        
                         <div class="datosIndividuales">
-                            <span>${prod.nombre}</span>
+                            <span>Nombre: ${prod.nombre}</span>
                             <span>Talla: ${prod.talla != null && prod.talla != '' ? prod.talla : 'N/A'}</span>
-                            <span>$${prod.precio}</span>
+                            <span>Precio: $${prod.precio}</span>
                         </div>
                     </div>
                 </a>
             </c:forEach>
         </section>
         
-        <section id="baseBoton"></section>
+        <a href="${pageContext.request.contextPath}/crear-producto.html" class="btn btn-primary btn-float" title="Crear nuevo producto">+</a>
     </main>
 
     <footer>
@@ -63,6 +67,5 @@
     <!-- Rutas corregidas para los Scripts -->
     <script src="${pageContext.request.contextPath}/js/header.js"></script>
     <script src="${pageContext.request.contextPath}/js/barra-busqueda.js"></script>
-    <script src="${pageContext.request.contextPath}/js/admin-product.js"></script>
 </body>
 </html>

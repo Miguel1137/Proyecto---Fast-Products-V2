@@ -12,8 +12,8 @@ if (window.location.href.includes("inventario")){
 
                 <!--botones-->
                 <div class="distribucion-botones-vista">
-                    <button class="BotonesNavegacion">Cuadricula</button>
-                    <button class="BotonesNavegacion">Lista</button>
+                    <button class="btn btn-primary btn-sm">Cuadricula</button>
+                    <button class="btn btn-primary btn-sm">Lista</button>
                 </div>
 
             </div>
@@ -22,7 +22,7 @@ if (window.location.href.includes("inventario")){
             <div class="contenedor-busqueda">
 
                 <input class="casilla-bus-txt"; type="text" placeholder="Buscar artículo">
-                <button class="BotonesNavegacion">Buscar</button>
+                <button class="btn btn-primary btn-sm">Buscar</button>
 
             </div>   
         </section>
@@ -35,7 +35,7 @@ if (window.location.href.includes("inventario")){
             <div class="contenedor-busqueda">
 
                 <input class="casilla-bus-txt"; type="text" placeholder="Buscar artículo">
-                <button class="BotonesNavegacion">Buscar</button>
+                <button class="btn btn-primary btn-sm">Buscar</button>
 
             </div>    
         </section> 

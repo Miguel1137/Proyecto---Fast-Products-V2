@@ -30,7 +30,7 @@ if (window.location.href.includes("index")){
                         </div>
                     </div>
                 </div>
-                <button class="boton">Reabastecer</button>
+                <button class="btn btn-primary btn-md">Reabastecer</button>
             </div>
         `
     });
@@ -62,7 +62,7 @@ if (window.location.href.includes("index")){
                         </div>
                     </div>
                 </div>
-                <button class="boton">Deshacer Reporte</button>
+                <button class="btn btn-primary btn-md">Deshacer Reporte</button>
             </div>
         `
     });

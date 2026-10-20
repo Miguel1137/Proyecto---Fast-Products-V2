@@ -46,7 +46,7 @@ document.getElementById("bloqueInformacion").innerHTML=`
         </div>
     </div>
     <div class="seccionBotones">
-        <a href="<%= request.getContextPath() %>/LogOutServlet" class="Botones-Principales" style="background-color: #F45D5D;">Cerrar sesión</a>
-        <a href="" class="Botones-Principales" style="background-color: #D9C6C6;">Modificar</a>
+        <a href="<%= request.getContextPath() %>/LogOutServlet" class="btn btn-danger btn-md">Cerrar sesión</a>
+        <a href="#" class="btn btn-primary btn-md">Modificar</a>
     </div>
             `

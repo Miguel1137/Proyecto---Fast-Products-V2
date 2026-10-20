@@ -40,7 +40,7 @@
                 </div>
 
                 <!-- Cambié "botonIngresar" por "botonConfirmar" para que tome tu estilo del CSS -->
-                <button type="submit" class="botonConfirmar">Ingresar</button>
+                <button type="submit" class="btn btn-primary btn-lg">Ingresar</button>
             </form>
             
             <% if (request.getAttribute("error") != null) { %>

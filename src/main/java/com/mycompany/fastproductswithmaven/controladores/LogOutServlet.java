@@ -25,7 +25,7 @@ public class LogOutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // 1. Buscamos la sesión actual sin crear una nueva (pasando 'false')
+        // 1. buscar la sesión actual sin crear una nueva (pasando 'false')
         HttpSession session = request.getSession(false);
         
         if (session != null) {
@@ -33,7 +33,7 @@ public class LogOutServlet extends HttpServlet {
             session.invalidate();
         }
         
-        // 3. Redirigimos al usuario de vuelta al formulario de inicio de sesión
+        //3. redireccionar al usuario
         response.sendRedirect("index.jsp");
     }
 }
