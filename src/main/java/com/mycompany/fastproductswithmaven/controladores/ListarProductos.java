@@ -25,7 +25,6 @@ public class ListarProductos extends HttpServlet {
         
         List<Map<String, Object>> listaProductos = new ArrayList<>();
         
-        // 1. AGREGAMOS foto_url AL SELECT
         String sql = "SELECT id_producto, nombre_producto, talla, precio, cantidad_disponible, foto_url FROM productos";
 
         try (Connection conexionDB = conexion.obtenerConexion()) {
@@ -45,7 +44,6 @@ public class ListarProductos extends HttpServlet {
                         producto.put("precio", resultado.getDouble("precio"));
                         producto.put("cantidad", resultado.getInt("cantidad_disponible"));
                         
-                        // 2. GUARDAMOS LA FOTO EN EL MAPA
                         producto.put("foto", resultado.getString("foto_url"));
                         
                         listaProductos.add(producto);

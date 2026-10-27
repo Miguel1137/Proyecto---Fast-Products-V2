@@ -52,7 +52,6 @@
     </main>
 
     <footer>
-        <!-- Aquí puedes poner tu footer si lo necesitas -->
     </footer>
 
 </body>

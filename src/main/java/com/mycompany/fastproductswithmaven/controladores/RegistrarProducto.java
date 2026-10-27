@@ -107,7 +107,7 @@ public class RegistrarProducto extends HttpServlet {
             int filasInsertadas = sentencia.executeUpdate();
 
             if (filasInsertadas == 1) {
-                response.sendRedirect(request.getContextPath() + "/alertas.html");
+                response.sendRedirect(request.getContextPath() + "/inventario");
             } else {
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "No se pudo guardar el producto.");
             }

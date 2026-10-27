@@ -25,15 +25,12 @@ public class LogOutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // 1. buscar la sesión actual sin crear una nueva (pasando 'false')
         HttpSession session = request.getSession(false);
         
         if (session != null) {
-            // 2. Destruimos por completo la sesión y borramos todos sus datos
             session.invalidate();
         }
         
-        //3. redireccionar al usuario
         response.sendRedirect("index.jsp");
     }
 }

@@ -1,9 +1,13 @@
 com\mycompany\fastproductswithmaven\controladores\ListarAlertas.class
+com\mycompany\fastproductswithmaven\controladores\EliminarProducto.class
+com\mycompany\fastproductswithmaven\JAXRSConfiguration.class
+com\mycompany\fastproductswithmaven\controladores\EditarProducto.class
+com\mycompany\fastproductswithmaven\resources\JavaEE8Resource.class
+com\mycompany\fastproductswithmaven\controladores\VerProducto.class
 com\mycompany\fastproductswithmaven\controladores\ListarProductos.class
 com\mycompany\fastproductswithmaven\controladores\LoginServlet.class
 com\mycompany\fastproductswithmaven\controladores\RegistrarProducto.class
-com\mycompany\fastproductswithmaven\JAXRSConfiguration.class
 com\mycompany\fastproductswithmaven\config\conexion.class
 com\mycompany\fastproductswithmaven\controladores\LogOutServlet.class
-com\mycompany\fastproductswithmaven\resources\JavaEE8Resource.class
+com\mycompany\fastproductswithmaven\controladores\ModificarProducto.class
 com\mycompany\fastproductswithmaven\controladores\MostrarImagen.class

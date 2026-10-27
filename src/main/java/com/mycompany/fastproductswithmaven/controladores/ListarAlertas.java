@@ -25,7 +25,6 @@ public class ListarAlertas extends HttpServlet {
         
         List<Map<String, Object>> listaAlertas = new ArrayList<>();
         
-        // LA CONSULTA MÁGICA: Trae solo los productos que necesitan reabastecimiento
         String sql = "SELECT id_producto, nombre_producto, cantidad_disponible, cantidad_minima, foto_url FROM productos "
                    + "WHERE cantidad_disponible <= cantidad_minima";
 
