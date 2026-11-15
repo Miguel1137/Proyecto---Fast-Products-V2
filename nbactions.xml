@@ -1,0 +1,5 @@
+<action name="run">
+    <goals>
+        <goal>spring-boot:run</goal>
+    </goals>
+</action>

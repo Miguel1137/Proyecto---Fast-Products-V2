@@ -1,0 +1,438 @@
+/* ==========================================================================
+   1. VARIABLES Y ESTILOS GENERALES
+   ========================================================================== */
+:root {
+    --bg-color: #FEF7FF;
+    --primary-color: #d98e8ecb;
+    --card-color: #e9b6b6;
+    --btn-color: #D9C6C6;
+    --border-color: #c79595;
+    --text-dark: #000000;
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.2);
+    --shadow-hard: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+* {
+    box-sizing: border-box; /* Clave para que los inputs no se desborden */
+}
+
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: var(--bg-color);
+    font-family: 'PT Sans Narrow', sans-serif;
+    border: 6px solid var(--primary-color);
+    margin: 0;
+    padding: 2%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    border-radius: 11px;
+    max-width: 100%;
+    height: auto;
+}
+
+h1 { margin-left: 30px; color: var(--primary-color); }
+h3 { font-weight: 400; margin: 0; }
+span { font-weight: 400; }
+p { font-weight: 500; }
+a { color: inherit; text-decoration: none; padding: 8px; }
+
+/* ==========================================================================
+   2. COMPONENTES REUTILIZABLES (BOTONES E INPUTS)
+   ========================================================================== */
+/* 1. CLASE BASE (Todos los botones) */
+.btn {
+    border-radius: 11px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    font-weight: 600;
+    font-family: inherit;
+    font-size: 1rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 16px;
+}
+
+/* 2. EFECTOS COMUNES (Hover y Active) */
+.btn:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px);
+}
+
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* 3. MODIFICADORES DE COLOR */
+.btn-primary {
+    background-color: var(--btn-color);
+    color: var(--text-dark);
+}
+.btn-primary:hover { background-color: #cbb4b4; }
+.btn-primary:active { background-color: #b59898; }
+
+.btn-secondary {
+    background-color: #e9b6b6;
+    color: var(--text-dark);
+}
+.btn-secondary:hover { background-color: #d99c9c; }
+.btn-secondary:active { background-color: #c98a8a; }
+
+.btn-danger {
+    background-color: #F45D5D;
+    color: white;
+}
+.btn-danger:hover { background-color: #d94a4a; }
+.btn-danger:active { background-color: #b53b3b; }
+
+/* 4. MODIFICADORES DE TAMAÑO Y FORMA */
+.btn-md { height: 40px; }
+.btn-lg { height: 45px; width: 100%; }
+.btn-sm { height: 35px; font-size: 0.9rem; }
+
+.btn-float {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    font-size: 2.5rem;
+    font-weight: 300;
+    padding: 0;
+    z-index: 1000;
+}
+.btn-float:hover {
+    transform: scale(1.1) translateY(-5px);
+}
+
+.italica { font-family: 'Playfair Display', serif; font-style: italic; }
+input, label { display: block; margin-bottom: 10px; }
+
+/* ==========================================================================
+   3. HEADER Y NAVEGACIÓN
+   ========================================================================== */
+.headerInterno {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3%;
+    gap: 15px;
+}
+
+nav { display: flex; margin-left: auto; gap: 15px; }
+.logo { text-align: center; margin-top: 10px; }
+.nav-interfaz { color: rgba(0, 0, 0, 0.6); font-weight: 700; transition: color 0.3s; }
+.nav-interfaz:hover { color: rgba(0, 0, 0, 1); }
+.activo { font-size: 25px; color: rgba(0, 0, 0, 1); }
+
+/* ==========================================================================
+   4. BARRA DE BÚSQUEDA
+   ========================================================================== */
+#opcionesBusqueda {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3rem;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+#SeleccionVista { display: flex; flex-wrap: wrap; align-items: center; ; }
+.distribucion-botones-vista { display: flex; flex-wrap: wrap; gap: 10px}
+.vista-txt { margin-right: 10px; }
+.contenedor-busqueda { display: flex; align-items: center; margin-left: auto; }
+
+.casilla-bus-txt {
+    height: 35px;
+    outline: none;
+    padding: 0 60px 0 20px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 11px;
+    color: var(--text-dark);
+    margin-right: 5px;
+}
+
+/* ==========================================================================
+   5. VISTA DE INVENTARIO (TARJETAS EN CUADRÍCULA)
+   ========================================================================== */
+#inventario {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px; /* Separación entre tarjetas */
+    padding: 30px;
+    padding-top: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.tarjetaProducto {
+    width: 240px; /* Ancho fijo */
+    height: 260px; /* Altura fija para que todas sean iguales */
+    background-color: #e9b6b6; /* Color de fondo */
+    display: flex;
+    flex-direction: column; /* ¡Esto es clave para que sea en columna! */
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Corta lo que se salga del borde */
+    padding-bottom: 20px;
+}
+
+.tarjetaProducto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.contenedorImagen{
+    width: 100%;
+    border-radius: 11px;
+    overflow: hidden;
+}
+.contenedorImagen img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.datosIndividuales {
+    display: flex;
+    flex-direction: column;
+   
+    gap: 8px;
+    width: 100%;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.datosIndividuales span {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: #000;
+}
+/* ==========================================================================
+   6. VISTA DE ALERTAS Y REPORTES (TARJETAS ENLISTADAS)
+   ========================================================================== */
+.campoEnlistado { margin: 20px 150px; }
+
+.tarjetaEnlistada {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 110px;
+    margin-top: 20px;
+    border-radius: 11px;
+    background-color: var(--primary-color);
+    padding-right: 20px;
+    box-shadow: var(--shadow-soft);
+}
+
+.seccionDatosPrincipal { display: flex; align-items: center; height: 100%; }
+.seccionDatosPrincipal img { border-radius: 11px 0 0 11px; height: 110px; object-fit: cover; }
+.seccionDatosSecundaria { height: 100%; display: flex; flex-direction: column; justify-content: center; }
+.seccionDatosTerciaria { display: flex; justify-content: flex-start; gap: 30px; margin-top: 10px;}
+.nombreTarjetas { margin-left: 20px; font-weight: 700; font-size: 1.2rem; }
+.datosInternos { display: flex; flex-direction: column; }
+.datosIndividuales { font-weight: 400; font-size: 0.9rem; }
+
+
+/* ==========================================================================
+   7. FORMULARIOS Y LOGIN (CREAR PRODUCTO / INICIAR SESIÓN)
+   ========================================================================== */
+#bloqueInformacion {
+    width: 100%;
+    max-width: 450px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-hard);
+    margin: 40px auto;
+}
+
+.headerLogin { text-align: center; margin-bottom: 25px; }
+.headerLogin h2 { margin-bottom: 8px; color: #333; }
+.headerLogin h4 { color: #666; font-weight: 400; font-size: 0.95rem; }
+
+.formulario { display: flex; flex-direction: column; gap: 15px; }
+.grupoInput { display: flex; flex-direction: column; gap: 5px; }
+.grupoInput label { font-weight: 600; font-size: 0.9rem; color: #161616; margin-left: 5px; }
+
+.grupoInput input {
+    height: 45px;
+    border-radius: 11px;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-color);
+    padding: 0 15px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.grupoInput input:focus {
+    border-color: #a05a5a;
+    box-shadow: 0 0 8px rgba(160, 90, 90, 0.3);
+}
+
+.grupoPequeños { display: flex; flex-wrap: wrap; gap: 15px; }
+.grupoPequeños .grupoInput { flex: 1; min-width: 100px; }
+
+
+.error-Inicio-Sesion { color: #d32f2f; font-weight: bold; text-align: center; margin-top: 15px; }
+
+/* ==========================================================================
+   8. VISTA CUENTA Y CONFIGURACIÓN
+   ========================================================================== */
+#opcionesConfiguracion {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 50px auto;
+    gap: 40px;
+}
+
+.administracionUsuarios, .limpiezaSistema {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    flex: 1;
+}
+
+.titulosConfiguracion { margin: 0 0 20px 0; color: var(--text-dark); font-size: 1.5rem; text-align: center;}
+.seccionBotonesAdmUs { display: flex; flex-direction: column; gap: 15px; }
+
+/* Cuenta */
+.casillasInformacion { display: flex; flex-direction: column; gap: 20px; }
+.etiquetaInformacion { display: block; margin-bottom: 5px; font-weight: 700; }
+
+.casillaDatos {
+    display: flex;
+    align-items: center;
+    border-radius: 11px;
+    border: 1px solid var(--border-color);
+    height: 45px;
+    background-color: var(--card-color);
+    padding: 0 15px;
+}
+
+.casillaPermisos {
+    display: flex;
+    flex-direction: column;
+    border-radius: 11px;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-color);
+    padding: 15px 20px;
+}
+
+.permiso { display: flex; justify-content: space-between; align-items: center; margin: 8px 0; }
+.seccionBotones { display: flex; justify-content: space-between; gap: 15px; margin-top: 30px; }
+
+
+/* ==========================================================================
+   9. VISTA INDIVIDUAL DE PRODUCTO
+   ========================================================================== */
+.contenedor-tarjeta-productos {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.contenedor-datos-producto {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+}
+
+.imagen-producto img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.datos-textuales {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ==========================================================================
+   10. MEDIA QUERIES (DISEÑO RESPONSIVO)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .headerInterno { flex-direction: column; text-align: center; margin: 1rem; }
+    nav { margin-left: 0; justify-content: center; flex-wrap: wrap; }
+    
+    #opcionesBusqueda { flex-direction: column; align-items: stretch; margin: 1rem; }
+    .contenedor-busqueda { margin-left: 0; justify-content: center; }
+    
+    #opcionesConfiguracion { flex-direction: column; margin: 20px; }
+    
+    .campoEnlistado { margin: 20px; }
+    .tarjetaEnlistada { flex-direction: column; height: auto; padding: 15px; gap: 15px;}
+    .seccionDatosPrincipal { flex-direction: column; align-items: flex-start; }
+    .seccionDatosPrincipal img { border-radius: 11px; width: 100%; height: auto;}
+}
+
+/* ==========================================================================
+   INPUT DE ARCHIVOS PERSONALIZADO
+   ========================================================================== */
+.input-archivo-personalizado {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--card-color); /* El mismo fondo rosado de los inputs */
+    padding: 10px 15px;
+    border-radius: 11px;
+    border: 1px solid var(--border-color);
+}
+
+/* Ocultamos el input real de forma accesible */
+.input-archivo-personalizado input[type="file"] {
+    display: none; 
+}
+
+/* Estilo para el texto del nombre del archivo */
+#nombre-archivo {
+    font-size: 0.95rem;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Si el nombre es muy largo, pone "..." */
+    max-width: 200px;
+}
+
+/* Ajustamos el botón dentro de este contenedor para que no sea tan alto */
+.input-archivo-personalizado .btn {
+    height: 35px;
+    padding: 0 20px;
+}
