@@ -22,11 +22,9 @@ public class UsuarioService {
     @Autowired
     private PermisoRepository permisoRepository;
 
-    // Listar todos los usuarios (convirtiéndolos a DTO)
-        // Listar solo usuarios activos
+    // Listar TODOS los usuarios (activos e inactivos)
     public List<UsuarioDTO> listarUsuarios() {
         return usuarioRepository.findAll().stream()
-            .filter(Usuario::getActivo) // Filtra los inactivos
             .map(this::convertirADTO)
             .collect(Collectors.toList());
     }
@@ -38,13 +36,15 @@ public class UsuarioService {
     }
 
     // Crear un nuevo usuario
-    public UsuarioDTO crearUsuario(UsuarioDTO dto) {
+        public UsuarioDTO crearUsuario(UsuarioDTO dto) {
         Usuario usuario = new Usuario();
         usuario.setNombreCompleto(dto.getNombreCompleto());
         usuario.setNombreUsuario(dto.getNombreUsuario());
-        usuario.setContrasena("1234"); // Contraseña por defecto (puedes cambiarla luego)
+        // Usar la contraseña del formulario, o 1234 si está vacía
+        usuario.setContrasena(dto.getContrasena() != null && !dto.getContrasena().isEmpty() 
+            ? dto.getContrasena() : "1234");
+        usuario.setActivo(true);
 
-        // Asignar permisos
         if (dto.getPermisosIds() != null) {
             List<Permiso> permisos = permisoRepository.findAllById(dto.getPermisosIds());
             usuario.setPermisos(permisos);
@@ -54,13 +54,17 @@ public class UsuarioService {
         return convertirADTO(usuario);
     }
 
-    // Actualizar un usuario existente
     public UsuarioDTO actualizarUsuario(Integer id, UsuarioDTO dto) {
         Optional<Usuario> optionalUsuario = usuarioRepository.findById(id);
         if (optionalUsuario.isPresent()) {
             Usuario usuario = optionalUsuario.get();
             usuario.setNombreCompleto(dto.getNombreCompleto());
             usuario.setNombreUsuario(dto.getNombreUsuario());
+            
+            // Si el administrador escribió una nueva contraseña, la actualizamos
+            if (dto.getContrasena() != null && !dto.getContrasena().isEmpty()) {
+                usuario.setContrasena(dto.getContrasena());
+            }
 
             if (dto.getPermisosIds() != null) {
                 List<Permiso> permisos = permisoRepository.findAllById(dto.getPermisosIds());
@@ -73,12 +77,24 @@ public class UsuarioService {
         return null;
     }
 
-    // Eliminar (o inactivar) un usuario
+    // Inactivar un usuario (Soft Delete)
     public boolean inactivarUsuario(Integer id) {
         Optional<Usuario> optionalUsuario = usuarioRepository.findById(id);
         if (optionalUsuario.isPresent()) {
             Usuario usuario = optionalUsuario.get();
-            usuario.setActivo(false); // Lo marcamos como inactivo
+            usuario.setActivo(false);
+            usuarioRepository.save(usuario);
+            return true;
+        }
+        return false;
+    }
+
+    // Reactivar un usuario
+    public boolean reactivarUsuario(Integer id) {
+        Optional<Usuario> optionalUsuario = usuarioRepository.findById(id);
+        if (optionalUsuario.isPresent()) {
+            Usuario usuario = optionalUsuario.get();
+            usuario.setActivo(true);
             usuarioRepository.save(usuario);
             return true;
         }
@@ -91,6 +107,9 @@ public class UsuarioService {
         dto.setId(usuario.getId());
         dto.setNombreCompleto(usuario.getNombreCompleto());
         dto.setNombreUsuario(usuario.getNombreUsuario());
+        // dto.setContrasena(usuario.getContrasena()); // <-- LO DEJAMOS COMENTADO PARA NO ENVIARLA
+        dto.setActivo(usuario.getActivo());
+        
         if (usuario.getPermisos() != null) {
             dto.setPermisosIds(usuario.getPermisos().stream().map(Permiso::getId).collect(Collectors.toList()));
         } else {

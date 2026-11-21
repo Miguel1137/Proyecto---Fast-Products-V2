@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Optional;
 
@@ -19,27 +20,47 @@ public class LoginController {
     private UsuarioRepository usuarioRepository;
 
     @GetMapping("/")
-    public String mostrarLogin() {
+    public String mostrarLogin(@RequestParam(value = "error", required = false) String error, Model model) {
+        // Si viene un error en la URL, lo mostramos en la vista
+        if (error != null) {
+            if (error.equals("inactivo")) {
+                model.addAttribute("error", "Tu cuenta está inactiva. Contacta al administrador.");
+            } else if (error.equals("credenciales")) {
+                model.addAttribute("error", "Usuario o contraseña incorrectos.");
+            } else if (error.equals("vacio")) {
+                model.addAttribute("error", "Por favor, llena todos los campos.");
+            }
+        }
         return "index";
     }
 
     @PostMapping("/login")
-    public String procesarLogin(@RequestParam("user") String usuario, 
-                                @RequestParam("password") String contrasena, 
+    public String procesarLogin(@RequestParam(value = "user", required = false) String usuario, 
+                                @RequestParam(value = "password", required = false) String contrasena, 
                                 HttpSession session,
-                                Model model) {
+                                RedirectAttributes redirectAttrs) {
         
-        // Buscamos al usuario y verificamos que esté activo en la misma consulta
-        Optional<Usuario> user = usuarioRepository.findByNombreUsuarioAndContrasenaAndActivoTrue(usuario, contrasena);
+        // 1. Validar campos vacíos
+        if (usuario == null || usuario.trim().isEmpty() || contrasena == null || contrasena.trim().isEmpty()) {
+            redirectAttrs.addAttribute("error", "vacio");
+            return "redirect:/";
+        }
+        
+        // 2. Buscar usuario
+        Optional<Usuario> user = usuarioRepository.findByNombreUsuarioAndContrasena(usuario, contrasena);
         
         if (user.isPresent()) {
-            session.setAttribute("idUsuarioLogueado", user.get().getId());
-            // También podemos guardar el nombre del usuario en sesión si lo necesitas
-            session.setAttribute("nombreUsuarioLogueado", user.get().getNombreUsuario());
-            return "redirect:/inventario"; 
+            // 3. Validar si está activo
+            if (user.get().getActivo() != null && user.get().getActivo()) {
+                session.setAttribute("idUsuarioLogueado", user.get().getId());
+                return "redirect:/inventario"; 
+            } else {
+                redirectAttrs.addAttribute("error", "inactivo");
+                return "redirect:/"; 
+            }
         } else {
-            model.addAttribute("error", "Usuario o contraseña incorrectos, o cuenta inactiva.");
-            return "forward:/"; 
+            redirectAttrs.addAttribute("error", "credenciales");
+            return "redirect:/"; 
         }
     }
 }
