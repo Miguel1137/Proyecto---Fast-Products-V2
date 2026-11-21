@@ -1,7 +1,9 @@
 package com.proyecto.FastProducts.entity;
 
 import jakarta.persistence.*;
+import java.util.List;
 
+// Entidad que representa la tabla 'tabla_usuario'
 @Entity
 @Table(name = "tabla_usuario")
 public class Usuario {
@@ -17,9 +19,25 @@ public class Usuario {
     @Column(name = "nombre_usuario")
     private String nombreUsuario;
 
-    // ATENCIÓN: En tu BD tiene la letra 'ñ'. Hibernate debe saberlo exactamente así.
+    // En la base de datos la columna tiene la letra 'ñ'
     @Column(name = "contraseña") 
     private String contrasena;
+    
+    @Column(name = "activo")
+    private Boolean activo = true;
+
+    // Relación Muchos a Muchos con la tabla de permisos (usando la tabla intermedia)
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+        name = "administracion_permisos",
+        joinColumns = @JoinColumn(name = "id_usuario"),
+        inverseJoinColumns = @JoinColumn(name = "id_permiso")
+    )
+    private List<Permiso> permisos;
+
+    // Constructor vacío
+    public Usuario() {
+    }
 
     // Getters y Setters
     public Integer getId() { return id; }
@@ -33,4 +51,10 @@ public class Usuario {
 
     public String getContrasena() { return contrasena; }
     public void setContrasena(String contrasena) { this.contrasena = contrasena; }
+
+    public List<Permiso> getPermisos() { return permisos; }
+    public void setPermisos(List<Permiso> permisos) { this.permisos = permisos; }
+
+    public Boolean getActivo() { return activo; }
+    public void setActivo(Boolean activo) { this.activo = activo; }
 }
